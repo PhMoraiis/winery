@@ -1,3 +1,11 @@
+@import url(//db.onlinewebfonts.com/c/0257d4db2a10386dc5bf6d4ee82fa92a?family=Revans+Medium);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Revans Medium', sans-serif;
+  }
+}
