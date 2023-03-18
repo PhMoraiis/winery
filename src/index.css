@@ -7,5 +7,68 @@
 @layer base {
   html {
     font-family: 'Revans Medium', sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer base{
+  .filter-container button {
+    margin-left: 2.2rem;
+    margin-top: 2rem;
+    min-width: 1rem;
+    background: white;
+    color: #11412b;
+    border-radius: 0.5rem;
+    border: 2px solid #11412b;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.5rem 0.5rem;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    transition-duration: 300ms;
+  }
+
+  .filter-container button:hover {
+    background: #11412b;
+    color: white;
+    scale: 1.05;
+  }
+
+  .filter-container button.active {
+    background: #11412b;
+    color: white;
+  }
+
+  .search-container {
+    margin-top: 2rem;
+    margin-left: 2.2rem;
+    background: white;
+    color: #11412b;
+    border-radius: 0.5rem;
+    border: 2px solid #11412b;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.3rem 2rem;
+    transition-duration: 300ms;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  }
+
+  .search-container input {
+    border: none;
+    background: white;
+    font-size: 1rem;
+    color: #11412b;
+  }
+
+  .search-container input::placeholder {
+    color: #11412b;
+  }
+
+  .search-container input:focus {
+    outline: none;
+    border: none;
   }
 }

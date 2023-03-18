@@ -7,6 +7,7 @@ const Rodape = () => {
         href="#"
         by="Winery House™"
         year={2023}
+        className="text-black"
       />
       <Footer.LinkGroup>
         <Footer.Link href="#">

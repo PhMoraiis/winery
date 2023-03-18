@@ -7,7 +7,7 @@ const Header = () => {
       fluid={false}
       rounded={true}
     >
-      <Navbar.Brand href="https://flowbite.com/">
+      <Navbar.Brand href="/">
         <span className="self-center whitespace-nowrap text-xl font-bold dark:text-white uppercase">
           Winery House
         </span>
@@ -26,7 +26,7 @@ const Header = () => {
         >
           Home
         </a>
-        <a href="/" className="text-[#666] hover:text-[#11412B] duration-300 uppercase">
+        <a href="/#props" className="text-[#666] hover:text-[#11412B] duration-300 uppercase">
           Vinícolas
         </a>
         <a href="/" className="text-[#666] hover:text-[#11412B] duration-300 uppercase">
