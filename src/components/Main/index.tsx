@@ -22,7 +22,7 @@ const Main = () => {
           alt="..."
         />
         <img
-          src="https://img.freepik.com/fotos-premium/plantacoes-de-uvas-em-uma-vinicola-italiana_285885-146.jpg?w=2000"
+          src="https://i1.wp.com/quegostoso.tur.br/wp-content/uploads/2021/07/Louveira-SP-Vinhos-Micheletto-2021-3-Foto-Claudio-Schapochnik-Que-Gostoso.jpg?fit=1280%2C576"
           alt="..."
         />
         <img
