@@ -94,16 +94,6 @@
   </tr>
   <tr>
     <td align="center">
-      <a href="https://flowbite.com/">
-        <img src="https://flowbite.s3.amazonaws.com/brand/logo-light/mark/flowbite-logo.png" height="65px" alt="Framer Motion icon"/><br>
-        <sub>
-          <b>
-            <pre>Flowbite</pre>
-          </b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
       <a href="https://vitejs.dev/">
         <img src="https://vitejs.dev/logo-with-shadow.png" height="65px" alt="Vite icon"/><br>
         <sub>
@@ -133,24 +123,12 @@
         </sub>
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center">
       <a href="https://www.mysql.com/">
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968313.png" height="65px" alt="Vite icon"/><br>
         <sub>
           <b>
             <pre>MySQL</pre>
-          </b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://nodemon.io/">
-        <img src="https://seeklogo.com/images/N/nodemon-logo-9F66F45AB1-seeklogo.com.png" height="65px" alt="Vite icon"/><br>
-        <sub>
-          <b>
-            <pre>Nodemon</pre>
           </b>
         </sub>
       </a>
