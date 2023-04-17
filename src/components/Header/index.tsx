@@ -9,17 +9,10 @@ const Header = () => {
   ];
 
   return (
-    <nav className= "border-b w-full md:static md:text-sm md:border-none bg-white">
+    <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6]">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <a href="javascript:void(0)">
-            <img
-              src=""
-              width={120}
-              height={50}
-              alt="House Winery logo"
-            />
-          </a>
+          <a href="javascript:void(0)">House Winery</a>
           <div className="md:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"
@@ -65,7 +58,10 @@ const Header = () => {
           <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => {
               return (
-                <li key={idx} className="text-gray-700 hover:text-indigo-600">
+                <li
+                  key={idx}
+                  className="text-gray-700 text-[1rem] hover:text-[#ae1b1e]"
+                >
                   <a href={item.path} className="block">
                     {item.title}
                   </a>
@@ -77,7 +73,7 @@ const Header = () => {
               <li>
                 <a
                   href="javascript:void(0)"
-                  className="block py-3 px-4 font-medium text-center text-white btn-header rounded-lg shadow md:inline"
+                  className="block py-3 px-4 font-medium text-center text-white gradient rounded-lg shadow md:inline"
                 >
                   Login
                 </a>

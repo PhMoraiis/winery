@@ -13,18 +13,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="text-gray-500 bg-white px-4 py-5 max-w-screen-xl mx-auto md:px-8">
+    <footer className="text-black bg-[#F6f6f6] px-4 pb-5 pt-20 max-w-screen-xl mx-auto md:px-8">
       <div className="max-w-lg sm:mx-auto sm:text-center">
         <img src="" className="w-32 sm:mx-auto" />
         <p className="leading-relaxed mt-2 text-[15px]">
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book.
+        Não perca mais tempo! Cadastre-se hoje em nosso site e comece a desfrutar dos muitos benefícios de fazer parte de nossa comunidade de vinícolas.
         </p>
       </div>
       <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
         {footerNavs.map((item, idx) => (
-          <li className=" hover:text-gray-800">
+          <li className="hover:text-[#ae1b1e]">
             <a key={idx} href={item.href}>
               {item.name}
             </a>
@@ -39,17 +37,17 @@ const Footer = () => {
           <ul className="flex items-center space-x-4">
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
               <a href="javascript:void()">
-              <BsFacebook />
+              <BsFacebook className="hover:text-[#ae1b1e]" />
               </a>
             </li>
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
               <a href="javascript:void()">
-                <BsInstagram />
+                <BsInstagram className="hover:text-[#ae1b1e]" />
               </a>
             </li>
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
               <a href="javascript:void()">
-                <BsTwitter />
+                <BsTwitter className="hover:text-[#ae1b1e]" />
               </a>
             </li>
           </ul>

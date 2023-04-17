@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-header {
-    background: linear-gradient(106.89deg, #5d5d3c 15.73%, #fc9f32 15.74%, #ae1b1e 56.49%, #1a2766 115.91%);
+.gradient {
+    background-image: url('../../public/Gradient2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.paragraph {
+    background-image: url('../../public/Gradient2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    color: transparent;
 }
