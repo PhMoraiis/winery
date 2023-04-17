@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.sticky-nav {
-    animation: sticky-nav 300ms;
-}
-   
-@keyframes sticky-nav {
-   0% {
-       transform: translateY(-6em)
-   }
-
-   100% {
-       transform: translateY(0)
-   }
+.btn-header {
+    background: linear-gradient(106.89deg, #5d5d3c 15.73%, #fc9f32 15.74%, #ae1b1e 56.49%, #1a2766 115.91%);
 }

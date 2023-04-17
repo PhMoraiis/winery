@@ -9,7 +9,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
+    <nav className= "border-b w-full md:static md:text-sm md:border-none bg-white">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <a href="javascript:void(0)">
@@ -77,7 +77,7 @@ const Header = () => {
               <li>
                 <a
                   href="javascript:void(0)"
-                  className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                  className="block py-3 px-4 font-medium text-center text-white btn-header rounded-lg shadow md:inline"
                 >
                   Login
                 </a>
