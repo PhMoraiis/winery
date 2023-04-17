@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Gilroy Bold';
+    src: url('../fonts/Gilroy-ExtraBold.otf');
+}
+
+@font-face {
+    font-family: 'Gilroy Light';
+    src: url('../fonts/Gilroy-Light.otf');
+}
+
+@font-face {
+    font-family: 'Naveid Light';
+    src: url('../fonts/NaveidLight.otf');
+}
+
+@font-face {
+    font-family: 'Naveid Extra Light';
+    src: url('../fonts/NaveidExtraLight.otf');
+}
+
+@font-face {
+    font-family: 'Naveid Medium';
+    src: url('../fonts/NaveidMedium.otf');
+}
+
+@font-face {
+    font-family: 'Naveid Regular';
+    src: url('../fonts/NaveidRegular.otf');
+}
+
+@font-face {
+    font-family: 'Naveid Bold';
+    src: url('../fonts/NaveidBold.otf');
+}
+
+@font-face {
+    font-family: 'Naveid Extra Bold';
+    src: url('../fonts/NaveidExtraBold.otf');
+}
+
 .gradient {
     background-image: url('../../public/Gradient2.png');
     background-repeat: no-repeat;

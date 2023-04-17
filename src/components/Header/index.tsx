@@ -9,10 +9,10 @@ const Header = () => {
   ];
 
   return (
-    <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6]">
+    <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6] font-naveidEl">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <a href="javascript:void(0)">House Winery</a>
+          <a href="javascript:void(0)" className="text-xl font-naveidMd">House Winery</a>
           <div className="md:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"

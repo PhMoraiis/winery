@@ -16,11 +16,11 @@ const Footer = () => {
     <footer className="text-black bg-[#F6f6f6] px-4 pb-5 pt-20 max-w-screen-xl mx-auto md:px-8">
       <div className="max-w-lg sm:mx-auto sm:text-center">
         <img src="" className="w-32 sm:mx-auto" />
-        <p className="leading-relaxed mt-2 text-[15px]">
+        <p className="leading-relaxed mt-2 text-[15px] font-gilroyLt">
         Não perca mais tempo! Cadastre-se hoje em nosso site e comece a desfrutar dos muitos benefícios de fazer parte de nossa comunidade de vinícolas.
         </p>
       </div>
-      <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
+      <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0 font-naveidLt">
         {footerNavs.map((item, idx) => (
           <li className="hover:text-[#ae1b1e]">
             <a key={idx} href={item.href}>
@@ -30,7 +30,7 @@ const Footer = () => {
         ))}
       </ul>
       <div className="mt-8 items-center justify-between sm:flex">
-        <div className="mt-4 sm:mt-0">
+        <div className="mt-4 sm:mt-0 font-naveidMd">
           &copy; 2023 Stellar. All rights reserved.
         </div>
         <div className="mt-6 sm:mt-0">

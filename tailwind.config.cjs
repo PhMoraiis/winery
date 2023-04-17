@@ -5,7 +5,18 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'gilroyBd': ['Gilroy Bold'],
+        'gilroyLt': ['Gilroy Light'],
+        'naveidLt': ['Naveid Light'],
+        'naveidEl': ['Naveid Extra Light'],
+        'naveidMd': ['Naveid Medium'],
+        'naveidRg': ['Naveid Regular'],
+        'naveidBd': ['Naveid Bold'],
+        'naveidExbd': ['Naveid Extra Bold'],
+      },
+    },
   },
   plugins: [
   ],
