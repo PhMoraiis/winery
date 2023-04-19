@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { LoginModal } from "../LoginModal";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [state, setState] = useState(false);
 
   const navigation = [
-    { title: "Home", path: "javascript:void(0)" },
-    { title: "Vinicolas", path: "javascript:void(0)" },
+    { title: "Home", to: "/" },
+    { title: "Vinicolas", to: "#vinicolas" },
   ];
 
 
@@ -14,7 +15,7 @@ const Header = () => {
     <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6] font-naveidEl">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <a href="javascript:void(0)" className="text-xl font-naveidMd">House Winery</a>
+          <Link to="/" className="text-xl font-naveidMd">House Winery</Link>
           <div className="md:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"
@@ -64,9 +65,9 @@ const Header = () => {
                   key={idx}
                   className="text-gray-700 text-[1rem] hover:text-[#ae1b1e]"
                 >
-                  <a href={item.path} className="block">
+                  <Link to={item.to} className="block">
                     {item.title}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
