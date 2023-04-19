@@ -1,11 +1,11 @@
-import { Cards } from "../../components/Cardds/AllCard"
+import { AllCard } from "../../components/Cards/AllCard"
 import { Main } from "../../components/Main"
 
 const Home = () => {
     return(
         <div>
             <Main />
-            <Cards />
+            <AllCard />
         </div>
     )
 }

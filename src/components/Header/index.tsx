@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LoginModal } from "../LoginModal";
 
 const Header = () => {
   const [state, setState] = useState(false);
@@ -7,6 +8,7 @@ const Header = () => {
     { title: "Home", path: "javascript:void(0)" },
     { title: "Vinicolas", path: "javascript:void(0)" },
   ];
+
 
   return (
     <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6] font-naveidEl">
@@ -71,12 +73,7 @@ const Header = () => {
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
               <li>
-                <a
-                  href="javascript:void(0)"
-                  className="block py-3 px-4 font-medium text-center text-white gradient rounded-lg shadow md:inline"
-                >
-                  Login
-                </a>
+                <LoginModal />
               </li>
             </div>
           </ul>
