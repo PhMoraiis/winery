@@ -1,5 +1,4 @@
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerNavs = [
@@ -23,10 +22,10 @@ const Footer = () => {
       </div>
       <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0 font-naveidLt">
         {footerNavs.map((item, idx) => (
-          <li className="hover:text-[#ae1b1e]">
-            <Link key={idx} to={item.to}>
+          <li className="hover:text-[#ae1b1e]" key={idx}>
+            <a href={item.to}>
               {item.name}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
@@ -37,19 +36,19 @@ const Footer = () => {
         <div className="mt-6 sm:mt-0">
           <ul className="flex items-center space-x-4">
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-              <Link to="">
+              <a href="">
               <BsFacebook className="hover:text-[#ae1b1e]" />
-              </Link>
+              </a>
             </li>
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-              <Link to="">
+              <a href="">
                 <BsInstagram className="hover:text-[#ae1b1e]" />
-              </Link>
+              </a>
             </li>
             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-              <Link to="">
+              <a href="">
                 <BsTwitter className="hover:text-[#ae1b1e]" />
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

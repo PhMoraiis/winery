@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { LoginModal } from "../LoginModal";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const [state, setState] = useState(false);
@@ -15,7 +14,7 @@ const Header = () => {
     <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6] font-naveidEl">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <Link to="/" className="text-xl font-naveidMd">House Winery</Link>
+          <a href="/" className="text-xl font-naveidMd">House Winery</a>
           <div className="md:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"
@@ -65,9 +64,9 @@ const Header = () => {
                   key={idx}
                   className="text-gray-700 text-[1rem] hover:text-[#ae1b1e]"
                 >
-                  <Link to={item.to} className="block">
+                  <a href={item.to} className="block">
                     {item.title}
-                  </Link>
+                  </a>
                 </li>
               );
             })}

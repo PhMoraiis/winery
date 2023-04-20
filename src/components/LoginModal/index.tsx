@@ -18,7 +18,7 @@ const LoginModal = () => {
             {showModal ? (
                 <>
                     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                        <div className="relative w-auto my-6 mx-auto max-w-3xl bg-[#f6f6f6]">
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl bg-[#f6f6f6] rounded-xl">
                         <div className="flex items-center justify-end p-6 mb-[-3.5rem] rounded-b">
                                 <button
                                     className="text-[#ae1b1e] bg-transparent uppercase px-6 py-2 outline-none focus:outline-none mr-1"
@@ -39,14 +39,14 @@ const LoginModal = () => {
                                             <div>
                                                 <label htmlFor="email" className="block text-sm font-gilroyLt text-black"> Email </label>
                                                 <div className="mt-1">
-                                                    <input id="email" name="email" type="email" required className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                                    <input id="email" name="email" type="email" required className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-200 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <label htmlFor="password" className="block text-sm font-gilroyLt text-black"> Senha </label>
                                                 <div className="mt-1">
-                                                    <input id="password" name="password" type="password" required className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                                    <input id="password" name="password" type="password" required className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-200 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                                 </div>
                                             </div>
 
