@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
 import { IFormData } from "./types";
 
 const schema = yup
@@ -37,7 +38,7 @@ const LoginModal = () => {
         `users?email${formData.email}&password=${formData.password}`
       );
       if (data.length === 1) {
-        navigate("/feed");
+        navigate("/logon");
       } else {
         alert("Email ou senha incorretos");
       }
@@ -47,7 +48,7 @@ const LoginModal = () => {
   };
 
   const handleClickSignIn = () => {
-    navigate("/feed");
+    navigate("/logon");
   };
 
   return (

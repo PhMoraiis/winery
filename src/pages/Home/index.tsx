@@ -3,7 +3,7 @@ import { Main } from "../../components/Main"
 
 const Home = () => {
     return(
-        <div>
+        <div className="bg-[#f6f6f6]">
             <Main />
             <Cards />
         </div>

@@ -42,6 +42,10 @@
     src: url('../fonts/NaveidExtraBold.otf');
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .gradient {
     background-image: url('../../public/Gradient2.png');
     background-repeat: no-repeat;

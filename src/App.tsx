@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NewWinery from "./pages/NewWinery";
@@ -12,17 +8,18 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
 function App() {
-
   return (
-    <Router>
-      <Header />
+    <div className="bg-[#f6f6f6]">
+      <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/newwinery" element={<NewWinery />} />
           <Route path="/winery/:id" element={<EditWinery />} />
         </Routes>
-      <Footer />
-    </Router>
-  )
+        <Footer />
+      </Router>
+    </div>
+  );
 }
-export default App
+export default App;

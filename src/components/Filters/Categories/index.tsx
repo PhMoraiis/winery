@@ -1,100 +1,69 @@
-import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
-import { 
-  GiBarn, 
-  GiBoatFishing, 
-  GiCactus, 
-  GiCastle, 
-  GiCaveEntrance, 
-  GiForestCamp, 
-  GiIsland,
-  GiWindmill
-} from 'react-icons/gi';
-import { FaSkiing } from 'react-icons/fa';
-import { BsSnow } from 'react-icons/bs';
-import { IoDiamond } from 'react-icons/io5';
-import { MdOutlineVilla } from 'react-icons/md';
-import { CategoryBox } from '../../categoryBox';
-import { Container } from '../../Container';
+import { TbPool, TbTrekking, TbCoffee, TbMoodKid, TbKayak } from "react-icons/tb";
+import { GiWineGlass} from "react-icons/gi";
+import { HiOutlineUserGroup } from "react-icons/hi";
+import { MdOutlineHotel, MdOutlinePedalBike } from "react-icons/md";
+import { IoRestaurantOutline } from "react-icons/io5";
+import { RiLandscapeLine } from "react-icons/ri";
+import { BiAccessibility, BiCableCar } from "react-icons/bi";
 
 
+import { CategoryBox } from "./categoryBox";
+import { Container } from "./Container";
 
 export const categories = [
   {
-    label: 'Beach',
-    icon: TbBeach,
-    description: 'This property is close to the beach!',
+    label: "Degustação",
+    icon: GiWineGlass,
   },
   {
-    label: 'Windmills',
-    icon: GiWindmill,
-    description: 'This property is has windmills!',
+    label: "Tour",
+    icon: HiOutlineUserGroup,
   },
   {
-    label: 'Modern',
-    icon: MdOutlineVilla,
-    description: 'This property is modern!'
+    label: "Restaurante",
+    icon: IoRestaurantOutline,
   },
   {
-    label: 'Countryside',
-    icon: TbMountain,
-    description: 'This property is in the countryside!'
+    label: "Hotel",
+    icon: MdOutlineHotel,
   },
   {
-    label: 'Pools',
+    label: "Bikes",
+    icon: MdOutlinePedalBike,
+  },
+  {
+    label: "Trilhas",
+    icon: TbTrekking,
+  },
+  {
+    label: "Mirante",
+    icon: RiLandscapeLine,
+  },
+  {
+    label: "Cafeteria",
+    icon: TbCoffee,
+  },
+  {
+    label: "Kids",
+    icon: TbMoodKid,
+  },
+  {
+    label: "Acessibilidade",
+    icon: BiAccessibility,
+  },
+  {
+    label: "Piscinas",
     icon: TbPool,
-    description: 'This is property has a beautiful pool!'
   },
   {
-    label: 'Islands',
-    icon: GiIsland,
-    description: 'This property is on an island!'
+    label: "Teleféricos",
+    icon: BiCableCar,
   },
   {
-    label: 'Lake',
-    icon: GiBoatFishing,
-    description: 'This property is near a lake!'
+    label: "Kayaks",
+    icon: TbKayak,
   },
-  {
-    label: 'Skiing',
-    icon: FaSkiing,
-    description: 'This property has skiing activies!'
-  },
-  {
-    label: 'Castles',
-    icon: GiCastle,
-    description: 'This property is an ancient castle!'
-  },
-  {
-    label: 'Caves',
-    icon: GiCaveEntrance,
-    description: 'This property is in a spooky cave!'
-  },
-  {
-    label: 'Camping',
-    icon: GiForestCamp,
-    description: 'This property offers camping activities!'
-  },
-  {
-    label: 'Arctic',
-    icon: BsSnow,
-    description: 'This property is in arctic environment!'
-  },
-  {
-    label: 'Desert',
-    icon: GiCactus,
-    description: 'This property is in the desert!'
-  },
-  {
-    label: 'Barns',
-    icon: GiBarn,
-    description: 'This property is in a barn!'
-  },
-  {
-    label: 'Lux',
-    icon: IoDiamond,
-    description: 'This property is brand new and luxurious!'
-  }
-]
+];
 
 const Categories = () => {
   return (
@@ -107,18 +76,15 @@ const Categories = () => {
           items-center 
           justify-between
           overflow-x-auto
+          bg-[#f6f6f6]
         "
       >
         {categories.map((item) => (
-          <CategoryBox 
-            key={item.label}
-            label={item.label}
-            icon={item.icon}
-          />
+          <CategoryBox key={item.label} label={item.label} icon={item.icon} />
         ))}
       </div>
     </Container>
   );
-}
- 
+};
+
 export { Categories };

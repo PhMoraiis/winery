@@ -1,7 +1,7 @@
 import { CardGrid } from "../CardGrid"
 
 const Cards = () => {
-  return (<section id="#vinicolas">
+  return (<section id="vinicolas">
     <CardGrid />
   </section>
   )
