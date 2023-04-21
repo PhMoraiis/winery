@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { InputHTMLAttributes, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { IFormData } from "./types";
+import { API } from "../../api";
+
+
 
 const schema = yup
   .object({
@@ -34,7 +37,7 @@ const LoginModal = () => {
 
   const onSubmit = async (formData: IFormData) => {
     try {
-      const { data } = await api.get(
+      const { data } = await API.get(
         `users?email${formData.email}&password=${formData.password}`
       );
       if (data.length === 1) {
@@ -99,8 +102,6 @@ const LoginModal = () => {
                             id="email"
                             name="email"
                             type="email"
-                            errorMessage={errors?.email?.message}
-                            control={control}
                             className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-200 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
                           />
                         </div>
@@ -119,8 +120,6 @@ const LoginModal = () => {
                             id="password"
                             name="password"
                             type="password"
-                            errorMessage={errors?.password?.message}
-                            control={control}
                             className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-200 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
                           />
                         </div>

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import NewWinery from "./pages/NewWinery";
-import EditWinery from "./pages/EditWinery";
+import NewWinery from "./components/CrudWinery/CreateWinery";
+import EditWinery from "./components/CrudWinery/UpdateWinery";
 
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
