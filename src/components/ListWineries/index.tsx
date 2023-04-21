@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { API } from "../../api";
-import UpdateWinery from "../../components/CrudWinery/UpdateWinery";
-import DeleteWinery from "../../components/CrudWinery/DeleteWinery";
-import { Categoria, Vinicola } from "../../types";
+import UpdateWinery from "../CrudWinery/UpdateWinery";
+import DeleteWinery from "../CrudWinery/DeleteWinery";
+import { Vinicola } from "../../types";
 
-interface IProps {
-  vinicolas: Vinicola[];
-  categorias: Categoria[];
-  onSubmit: (vinicolaAtualizada: Vinicola) => void;
-}
+import { IProps } from "./types";
 
-const WineriesTable = ({ vinicolas, categorias, onSubmit }: IProps) => {
+const ListWineries
+ = ({ vinicolas, categorias, onSubmit }: IProps) => {
   const [vinicolasState, setVinicolasState] = useState<Vinicola[]>(vinicolas);
 
   useEffect(() => {
@@ -35,7 +32,7 @@ const WineriesTable = ({ vinicolas, categorias, onSubmit }: IProps) => {
         vinicola.id === vinicolaAtualizada.id ? vinicolaAtualizada : vinicola
       )
     );
-    onSubmit(vinicolaAtualizada);
+    onSubmit ? (vinicolaAtualizada) : null;
   };
 
   return (
@@ -76,4 +73,4 @@ const WineriesTable = ({ vinicolas, categorias, onSubmit }: IProps) => {
   );
 };
 
-export default WineriesTable;
+export default ListWineries;

@@ -22,7 +22,7 @@ const EditWinery = ({ categorias }: IProps) => {
   useEffect(() => {
     const fetchVinicola = async () => {
       try {
-        const response = await API.get<Vinicola>(`/api/vinicolas/${id}`);
+        const response = await API.get<Vinicola>(`/vinicolas/${id}`);
         setVinicola(response.data);
       } catch (error) {
         console.error("Erro ao buscar vinícola:", error);
@@ -33,7 +33,7 @@ const EditWinery = ({ categorias }: IProps) => {
 
   const handleUpdate = async (novaVinicola: Vinicola) => {
     try {
-      await API.put(`/api/vinicolas/${id}`, novaVinicola);
+      await API.put(`/vinicolas/${id}`, novaVinicola);
       console.log("Vinícola atualizada com sucesso!");
       navigate("/vinicolas");
     } catch (error) {

@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useState } from "react";
+import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { useNavigate } from "react-router-dom";
@@ -8,8 +8,6 @@ import * as yup from "yup";
 
 import { IFormData } from "./types";
 import { API } from "../../api";
-
-
 
 const schema = yup
   .object({

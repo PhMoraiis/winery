@@ -11,7 +11,7 @@ const DeleteWinery = ({ vinicola, onDelete }: Props) => {
 
   const handleDelete = async () => {
     try {
-      await API.delete(`/api/vinicolas/${vinicola.id}`);
+      await API.delete(`/vinicolas/${vinicola.id}`);
       onDelete();
       navigate("/vinicolas");
       console.log("Vinícola excluída com sucesso!");

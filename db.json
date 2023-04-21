@@ -1,0 +1,128 @@
+{
+    "vinicolas": [
+        {
+            "id": 1,
+            "name": "Vinícola do Vale",
+            "description": "A Vinícola do Vale é uma das principais produtoras de vinho da região.",
+            "image": "https://example.com/vinicola-do-vale.jpg",
+            "categories": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Vinícola da Serra",
+            "description": "A Vinícola da Serra é conhecida por seus vinhos finos e paisagens deslumbrantes.",
+            "image": "https://example.com/vinicola-da-serra.jpg",
+            "categories": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Vinícola do Lago",
+            "description": "A Vinícola do Lago é uma vinícola boutique especializada em vinhos premium.",
+            "image": "https://example.com/vinicola-do-lago.jpg",
+            "categories": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ]
+        }
+    ],
+    "categorias": [
+        {
+            "id": 1,
+            "nome": "Degustação"
+        },
+        {
+            "id": 2,
+            "nome": "Tour"
+        },
+        {
+            "id": 3,
+            "nome": "Restaurante"
+        },
+        {
+            "id": 4,
+            "nome": "Hotel"
+        },
+        {
+            "id": 5,
+            "nome": "Bikes"
+        },
+        {
+            "id": 6,
+            "nome": "Trilhas"
+        },
+        {
+            "id": 7,
+            "nome": "Mirante"
+        },
+        {
+            "id": 8,
+            "nome": "Cafeteria"
+        },
+        {
+            "id": 9,
+            "nome": "Kids"
+        },
+        {
+            "id": 10,
+            "nome": "Acessibilidade"
+        },
+        {
+            "id": 11,
+            "nome": "Piscinas"
+        },
+        {
+            "id": 12,
+            "nome": "Teleféricos"
+        },
+        {
+            "id": 13,
+            "nome": "Kayaks"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "Philipe Morais",
+            "email": "philipemorais@gmail.com",
+            "password": "123456"
+        },
+        {
+            "id": 2,
+            "name": "Gabrielle Machado",
+            "email": "gabimachado@gmail.com",
+            "password": "123456"
+        }
+    ]
+}
