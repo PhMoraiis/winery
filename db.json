@@ -108,6 +108,7 @@
             ]
         }
     ],
+    
     "categorias": [
         {
             "id": 1,
@@ -162,6 +163,7 @@
             "nome": "Kayaks"
         }
     ],
+
     "users": [
         {
             "id": 1,
