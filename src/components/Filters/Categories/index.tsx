@@ -10,7 +10,7 @@ import { BiAccessibility, BiCableCar } from "react-icons/bi";
 import { CategoryBox } from "./categoryBox";
 import { Container } from "./Container";
 
-export const categories = [
+export const categoriesListIcon = [
   {
     label: "Degustação",
     icon: GiWineGlass,
@@ -70,7 +70,6 @@ const Categories = () => {
     <Container>
       <div
         className="
-          pt-4
           flex 
           flex-row 
           items-center 
@@ -79,7 +78,7 @@ const Categories = () => {
           bg-[#f6f6f6]
         "
       >
-        {categories.map((item) => (
+        {categoriesListIcon.map((item) => (
           <CategoryBox key={item.label} label={item.label} icon={item.icon} />
         ))}
       </div>

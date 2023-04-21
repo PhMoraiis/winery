@@ -40,6 +40,7 @@ const LoginModal = () => {
       );
       if (data.length === 1) {
         navigate("/logon");
+        setShowModal(false);
       } else {
         alert("Email ou senha incorretos");
       }
@@ -50,6 +51,7 @@ const LoginModal = () => {
 
   const handleClickSignIn = () => {
     navigate("/logon");
+    setShowModal(false);
   };
 
   return (

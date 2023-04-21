@@ -1,12 +1,10 @@
-export interface Categoria {
-    id?: number;
-    name: string;
-}
+import { Categoria } from "../../types";
 
-export interface Vinicola {
+export interface MiniCardProps {
     id: number;
     name: string;
     description: string;
     image: string;
     category: Categoria;
-}
+  }
+  
