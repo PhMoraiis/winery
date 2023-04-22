@@ -1,34 +1,41 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn, ManyToMany, JoinTable } from "typeorm"
-import { v4 as uuid } from "uuid"
+import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, JoinTable, OneToMany } from "typeorm";
+import { v4 as uuid } from "uuid";
 import { Category } from "./Category";
 
 @Entity("vinicolas")
 export class Vinicola {
-    @PrimaryColumn()
-    id: string;
+  @PrimaryColumn()
+  id: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    description: string;
+  @Column()
+  description: string;
 
-    @Column()
-    category_id: string;
+  @Column()
+  image: string;
 
-    @ManyToMany(() => Category)
-    @JoinTable()
-    categories: Category[];
-
-    @Column()
-    image: string;
-
-    @CreateDateColumn()
-    created_at: Date;
-
-    constructor() {
-        if (!this.id) {
-            this.id = uuid()
-        }
+  @ManyToMany(() => Category, category => category.vinicolas)
+  @JoinTable({
+    name: "vinicolas_categories",
+    joinColumn: {
+      name: "vinicola_id",
+      referencedColumnName: "id"
+    },
+    inverseJoinColumn: {
+      name: "category_id",
+      referencedColumnName: "id"
     }
+  })
+  categories: Category[];
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
 }
