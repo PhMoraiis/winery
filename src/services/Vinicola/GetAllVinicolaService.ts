@@ -7,7 +7,7 @@ export class GetAllVinicolaService {
         const repo = dataSource.getRepository(Vinicola);
 
         const vinicola = await repo.find({
-            relations: ["category"]
+            relations: ["categories"]
         });
 
         return vinicola;

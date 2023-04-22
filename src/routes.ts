@@ -7,6 +7,9 @@ import { UpdateCategoryController } from './controllers/Category/UpdateCategoryC
 
 import { CreateVinicolaController } from './controllers/Vinicola/CreateVinicolaController';
 import { GetAllVinicolaController } from './controllers/Vinicola/GetAllVinicolaController';
+import { DeleteVinicolaController } from './controllers/Vinicola/DeleteVinicolaController';
+import { UpdateVinicolaController } from './controllers/Vinicola/UpdateVinicolaController';
+import { GetVinicolaByIdController } from './controllers/Vinicola/GetVinicolaByIdController';
 
 
 const routes = Router();
@@ -18,5 +21,8 @@ routes.put("/categories/:id", new UpdateCategoryController().handle)
 
 routes.post("/vinicolas", new CreateVinicolaController().handle)
 routes.get("/vinicolas", new GetAllVinicolaController().handle)
+routes.delete("/vinicolas/:id", new DeleteVinicolaController().handle)
+routes.put("/vinicolas/:id", new UpdateVinicolaController().handle)
+routes.get("/vinicolas/:id", new GetVinicolaByIdController().handle)
 
 export { routes }

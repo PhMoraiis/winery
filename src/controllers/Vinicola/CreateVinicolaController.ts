@@ -4,13 +4,13 @@ import { AppDataSource } from "../../data-source";
 
 export class CreateVinicolaController {
     async handle(request: Request, response: Response) {
-        const { name, description, image, category_id } = request.body;
+        const { name, description, image, categories } = request.body;
 
         const service = new CreateVinicolaService();
 
         const dataSource = AppDataSource;
 
-        const result = await service.execute({ name, description, image, category_id }, dataSource);
+        const result = await service.execute({ name, description, image, categories }, dataSource);
 
         if (result instanceof Error) {
             return response.status(400).json({ error: result.message });
