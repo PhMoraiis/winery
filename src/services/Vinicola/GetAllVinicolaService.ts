@@ -6,9 +6,7 @@ export class GetAllVinicolaService {
     async execute(dataSource: DataSource): Promise<Vinicola[] | Error> {
         const repo = dataSource.getRepository(Vinicola);
 
-        const vinicola = await repo.find({
-            relations: ["categories"]
-        });
+        const vinicola = await repo.find();
 
         return vinicola;
     }

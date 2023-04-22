@@ -11,6 +11,7 @@
       "typeorm:run": "yarn typeorm migration:run -d src/data-source.ts",
       "typeorm:revert": "yarn typeorm migration:revert -d src/data-source.ts",
       "typeorm:create": "yarn typeorm migration:create src/migrations/",
+      "typeorm:generate": "typeorm migration:generate -d src/data-source.ts src/migrations/default",
       "start": "ts-node src/index.ts"
    },
    "dependencies": {

@@ -1,7 +1,6 @@
 import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, JoinTable, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Vinicola } from "./Vinicola";
-
+import { VinicolaCategoria } from "./VinicolaCategoria";
 @Entity("categories")
 export class Category {
   
@@ -17,8 +16,8 @@ export class Category {
   @CreateDateColumn()
   created_at: Date;
 
-  @ManyToMany(() => Vinicola, vinicola => vinicola.categories)
-  vinicolas: Vinicola[];
+  @OneToMany(() => VinicolaCategoria, vinicolaCategoria => vinicolaCategoria.categoria)
+  vinicolaCategorias: VinicolaCategoria[];
 
   constructor() {
     if (!this.id) {

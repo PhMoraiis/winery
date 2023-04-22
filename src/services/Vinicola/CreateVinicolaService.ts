@@ -1,27 +1,36 @@
-import { Category } from "../../entities/Category";
 import { Vinicola } from "../../entities/Vinicola"
-import { DataSource, In } from "typeorm";
+import { DataSource } from "typeorm";
 
 type VinicolaRequest = {
     name: string;
     description: string;
     image: string;
-    categories: Category[];
+    wine_tasting: boolean;
+    tour: boolean;
+    restaurant: boolean;
+    hotel: boolean;
+    bikes: boolean;
+    trakking: boolean;
+    viewpoint: boolean;
+    cafeteria: boolean;
+    playground: boolean;
+    acessibility: boolean;
+    pool: boolean;
+    cable_car: boolean;
+    kayak: boolean;
 }
 
 export class CreateVinicolaService {
-    async execute({ name, description, image, categories }: VinicolaRequest, dataSource: DataSource): Promise<Vinicola | Error> {
+    async execute({ name, description, image, wine_tasting, tour, restaurant, hotel, bikes, trakking, viewpoint, cafeteria, playground, acessibility, pool, cable_car, kayak }: VinicolaRequest, dataSource: DataSource): Promise<Vinicola | Error> {
         const repo = dataSource.getRepository(Vinicola);
-        const repoCategory = dataSource.getRepository(Category);
 
-        const categoryIds = categories.map(category => category.id);
-        const foundCategories = await repoCategory.find({ where: { id: In(categoryIds) } });
-
-        if(foundCategories.length !== categories.length) {
-            return new Error("One or more categories do not exist")
+        if (await repo.findOne({ where: { name } })) {
+            return new Error("Vinicola already exists");
         }
 
-        const vinicola = repo.create({ name, description, image, categories });
+        const vinicola = repo.create({
+            name, description, image, wine_tasting, tour, restaurant, hotel, bikes, trakking, viewpoint, cafeteria, playground, acessibility, pool, cable_car, kayak
+        });
 
         await repo.save(vinicola);
 

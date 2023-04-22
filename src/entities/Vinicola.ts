@@ -1,6 +1,5 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToMany, JoinTable, OneToMany } from "typeorm";
+import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Category } from "./Category";
 
 @Entity("vinicolas")
 export class Vinicola {
@@ -16,19 +15,44 @@ export class Vinicola {
   @Column()
   image: string;
 
-  @ManyToMany(() => Category, category => category.vinicolas)
-  @JoinTable({
-    name: "vinicolas_categories",
-    joinColumn: {
-      name: "vinicola_id",
-      referencedColumnName: "id"
-    },
-    inverseJoinColumn: {
-      name: "category_id",
-      referencedColumnName: "id"
-    }
-  })
-  categories: Category[];
+  @Column()
+  wine_tasting: boolean;
+
+  @Column()
+  tour: boolean;
+
+  @Column()
+  restaurant: boolean;
+
+  @Column()
+  hotel: boolean;
+
+  @Column()
+  bikes: boolean;
+
+  @Column()
+  trakking: boolean;
+
+  @Column()
+  viewpoint: boolean;
+
+  @Column()
+  cafeteria: boolean;
+
+  @Column()
+  playground: boolean;
+
+  @Column()
+  acessibility: boolean;
+
+  @Column()
+  pool: boolean;
+
+  @Column()
+  cable_car: boolean;
+
+  @Column()
+  kayak: boolean;
 
   @CreateDateColumn()
   created_at: Date;
