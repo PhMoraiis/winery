@@ -2,168 +2,119 @@
     "vinicolas": [
         {
             "id": 1,
-            "name": "Vinícola do Vale",
-            "description": "A Vinícola do Vale é uma das principais produtoras de vinho da região.",
-            "image": "https://a.cdn-hotels.com/gdcs/production189/d684/29594acd-c48c-4e4a-8932-9e03eeafcbcb.jpg",
-            "categories": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13
-            ]
+            "name": "Local Teste2",
+            "description": "Descrição do local teste2",
+            "image": "https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg",
+            "wine_tasting": true,
+            "tour": true,
+            "restaurant": true,
+            "hotel": true,
+            "bikes": true,
+            "trakking": true,
+            "viewpoint": true,
+            "cafeteria": true,
+            "playground": true,
+            "acessibility": true,
+            "pool": true,
+            "cable_car": true,
+            "kayak": true
         },
         {
             "id": 2,
-            "name": "Vinícola da Serra",
-            "description": "A Vinícola da Serra é conhecida por seus vinhos finos e paisagens deslumbrantes.",
-            "image": "https://www.penaestrada.blog.br/wp-content/uploads/2016/05/cape-town-tabe-moutains-15.jpg",
-            "categories": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10
-            ]
+            "name": "Local Teste2",
+            "description": "Descrição do local teste2",
+            "image": "https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg",
+            "wine_tasting": true,
+            "tour": true,
+            "restaurant": true,
+            "hotel": true,
+            "bikes": true,
+            "trakking": true,
+            "viewpoint": true,
+            "cafeteria": true,
+            "playground": true,
+            "acessibility": true,
+            "pool": true,
+            "cable_car": true,
+            "kayak": true
         },
         {
             "id": 3,
-            "name": "Vinícola do Lago",
-            "description": "A Vinícola do Lago é uma vinícola boutique especializada em vinhos premium.",
-            "image": "https://www.dicasdeviagem.com/wp-content/uploads/2019/09/vinicola-uruguai-capa-1500x1000.jpg",
-            "categories": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9
-            ]
+            "name": "Local Teste2",
+            "description": "Descrição do local teste2",
+            "image": "https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg",
+            "wine_tasting": true,
+            "tour": true,
+            "restaurant": true,
+            "hotel": true,
+            "bikes": true,
+            "trakking": true,
+            "viewpoint": true,
+            "cafeteria": true,
+            "playground": true,
+            "acessibility": true,
+            "pool": true,
+            "cable_car": true,
+            "kayak": true
         },
         {
             "id": 4,
-            "name": "Vinícola do Lago",
-            "description": "A Vinícola do Lago é uma vinícola boutique especializada em vinhos premium.",
-            "image": "https://www.dicasdeviagem.com/wp-content/uploads/2019/09/vinicola-uruguai-capa-1500x1000.jpg",
-            "categories": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9
-            ]
+            "name": "Local Teste2",
+            "description": "Descrição do local teste2",
+            "image": "https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg",
+            "wine_tasting": true,
+            "tour": true,
+            "restaurant": true,
+            "hotel": true,
+            "bikes": true,
+            "trakking": true,
+            "viewpoint": true,
+            "cafeteria": true,
+            "playground": true,
+            "acessibility": true,
+            "pool": true,
+            "cable_car": true,
+            "kayak": true
         },
         {
             "id": 5,
-            "name": "Vinícola do Lago",
-            "description": "A Vinícola do Lago é uma vinícola boutique especializada em vinhos premium.",
-            "image": "https://www.dicasdeviagem.com/wp-content/uploads/2019/09/vinicola-uruguai-capa-1500x1000.jpg",
-            "categories": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9
-            ]
+            "name": "Local Teste2",
+            "description": "Descrição do local teste2",
+            "image": "https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg",
+            "wine_tasting": true,
+            "tour": true,
+            "restaurant": true,
+            "hotel": true,
+            "bikes": true,
+            "trakking": true,
+            "viewpoint": true,
+            "cafeteria": true,
+            "playground": true,
+            "acessibility": true,
+            "pool": true,
+            "cable_car": true,
+            "kayak": true
         },
         {
             "id": 6,
-            "name": "Vinícola do Lago",
-            "description": "A Vinícola do Lago é uma vinícola boutique especializada em vinhos premium.",
-            "image": "https://www.dicasdeviagem.com/wp-content/uploads/2019/09/vinicola-uruguai-capa-1500x1000.jpg",
-            "categories": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9
-            ]
+            "name": "Local Teste2",
+            "description": "Descrição do local teste2",
+            "image": "https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg",
+            "wine_tasting": true,
+            "tour": true,
+            "restaurant": true,
+            "hotel": true,
+            "bikes": true,
+            "trakking": true,
+            "viewpoint": true,
+            "cafeteria": true,
+            "playground": true,
+            "acessibility": true,
+            "pool": true,
+            "cable_car": true,
+            "kayak": true
         }
     ],
-    
-    "categorias": [
-        {
-            "id": 1,
-            "nome": "Degustação"
-        },
-        {
-            "id": 2,
-            "nome": "Tour"
-        },
-        {
-            "id": 3,
-            "nome": "Restaurante"
-        },
-        {
-            "id": 4,
-            "nome": "Hotel"
-        },
-        {
-            "id": 5,
-            "nome": "Bikes"
-        },
-        {
-            "id": 6,
-            "nome": "Trilhas"
-        },
-        {
-            "id": 7,
-            "nome": "Mirante"
-        },
-        {
-            "id": 8,
-            "nome": "Cafeteria"
-        },
-        {
-            "id": 9,
-            "nome": "Kids"
-        },
-        {
-            "id": 10,
-            "nome": "Acessibilidade"
-        },
-        {
-            "id": 11,
-            "nome": "Piscinas"
-        },
-        {
-            "id": 12,
-            "nome": "Teleféricos"
-        },
-        {
-            "id": 13,
-            "nome": "Kayaks"
-        }
-    ],
-
     "users": [
         {
             "id": 1,

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { MiniCard } from "../MiniCard";
 import { API } from "../../../api";
 import { Vinicola } from "../../../types";
-import { Categories } from "../../Filters/Categories";
+import { Filter } from "../../Filters";
+
 
 const CardGrid = () => {
-  const [vinicolas, setVinicolas] = useState<Vinicola[]>([]);
+  const [vinicola, setVinicolas] = useState<Vinicola[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +17,7 @@ const CardGrid = () => {
   }, []);
 
   return (
-    <section className="text-gray-400 bg-[#F6f6f6] mt-16">
+    <section className="text-gray-400 bg-[#F6f6f6] mt-16" id="vinicolas">
       <div className="px-5 py-2 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-3xl text-2xl mb-4 paragraph font-naveidBd">
@@ -29,18 +30,18 @@ const CardGrid = () => {
           </p>
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-            <Categories />
+          <Filter />
           <div className="flex flex-wrap -m-4">
-            {vinicolas.map((vinicola) => (
-              <MiniCard
-                key={vinicola.id}
-                id={vinicola.id}
-                name={vinicola.name}
-                description={vinicola.description}
-                image={vinicola.image}
-                category={vinicola.category}
-              />
-            ))}
+            {vinicola.map((winery: Vinicola) => (
+                <MiniCard
+                  key={winery.id}
+                  id={winery.id}
+                  name={winery.name}
+                  description={winery.description}
+                  image={winery.image}
+                  category={winery.category}
+                />
+              ))}
           </div>
         </div>
       </div>

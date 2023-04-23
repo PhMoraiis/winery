@@ -30,19 +30,16 @@ const LoginModal = () => {
 
     const onSubmit = async (formData: IFormData) => {
         try {
-            const { data } = await API.get(`users?email${formData.email}&password=${formData.password}`);
-            if (data.length === 1) {
+            const { data } = await API.get(`/users?email=${formData.email}&password=${formData.password}`);
+            if (data.length > 0) {
                 navigate('/logon');
+                setShowModal(false);
             } else {
                 alert('Email ou senha incorretos');
             }
         } catch {
             alert('Erro ao fazer login');
         }
-    }
-
-    const handleClickSignIn = () => {
-        navigate('/logon');
     }
 
   return (
