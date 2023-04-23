@@ -4,9 +4,13 @@ import { API } from "../../../api";
 import { Vinicola } from "../../../types";
 import { Filter } from "../../Filters";
 
+interface Categoria {
+  value: string;
+}
 
 const CardGrid = () => {
-  const [vinicola, setVinicolas] = useState<Vinicola[]>([]);
+  const [vinicola, setVinicolas] = useState([]);
+  const [filtro, setFiltro] = useState("null" as Categoria | "null");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +19,31 @@ const CardGrid = () => {
     };
     fetchData();
   }, []);
+
+  const filterWinery = (winery: Vinicola): boolean => {
+    if (filtro === "null") {
+      return true;
+    } else {
+      return winery.toString() === filtro.toString();
+    }
+  };
+
+  const options = [
+    { value: "null" },
+    { value: "wine_tasting" },
+    { value: "tour" },
+    { value: "restaurant" },
+    { value: "hotel" },
+    { value: "bikes" },
+    { value: "trakking" },
+    { value: "viewpoint" },
+    { value: "cafeteria" },
+    { value: "playground" },
+    { value: "acessibility" },
+    { value: "pool" },
+    { value: "cable_car" },
+    { value: "kayak" },
+  ];
 
   return (
     <section className="text-gray-400 bg-[#F6f6f6] mt-16" id="vinicolas">
@@ -30,18 +59,21 @@ const CardGrid = () => {
           </p>
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <Filter />
+          <Filter
+            options={options}
+            value={filtro}
+            onChange={setFiltro}
+          />
           <div className="flex flex-wrap -m-4">
-            {vinicola.map((winery: Vinicola) => (
-                <MiniCard
-                  key={winery.id}
-                  id={winery.id}
-                  name={winery.name}
-                  description={winery.description}
-                  image={winery.image}
-                  category={winery.category}
-                />
-              ))}
+            {vinicola.filter(filterWinery).map((winery: Vinicola) => (
+              <MiniCard
+                key={winery.id}
+                id={winery.id}
+                name={winery.name}
+                description={winery.description}
+                image={winery.image}
+              />
+            ))}
           </div>
         </div>
       </div>

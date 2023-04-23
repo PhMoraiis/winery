@@ -1,6 +1,6 @@
 import { MiniCardProps } from "../types";
 
-const MiniCard = ({ name, description, image, category }: MiniCardProps) => {
+const MiniCard = ({ name, description, image }: MiniCardProps) => {
   return (
     <div className="lg:w-1/3 sm:w-2/4 max-xl:w-screen p-4 bg-[#f6f6f6]">
       <div className="flex relative shadow-lg shadow-gray-300">
