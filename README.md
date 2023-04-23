@@ -138,53 +138,33 @@
 
 ## 📖 Clonando o Projeto
 
-Para clonar e executar este projeto em seu computador, você precisará do [Git](https://git-scm.com/) e [Node.js v18.12.1](https://nodejs.org/en/) ou superior previamente instalados. e também do banco de dados [MySQL](https://dev.mysql.com/downloads/installer/) e do MySQL Server que pode ser instalado junto com o instalador do MySQL.<br>
-Feito isso, no terminal:
+Para clonar e executar este projeto em seu computador, você precisará do [Git](https://git-scm.com/) e [Node.js v18.12.1](https://nodejs.org/en/) ou superior previamente instalados.
 
 ```bash
 # FRONT-END
 
 # Clone esse repositório front-end com:
-> git clone https://github.com/PhMoraiis/Winery
+> git clone https://github.com/PhMoraiis/Winery.git
 
 # Entre no repositório com:
 > cd winery
 
 # Instale as dependências com:
-> npm install
+> yarn
 
 # Execute o projeto com:
-> npm run dev
+> yarn dev
 
-# Feito isso, você já poderá estar acessando o projeto em seu endereço 'localhost:XXXX'.
+# Feito isso, você já poderá estar acessando o projeto em seu endereço 'localhost:XXXX', geralmente é o localhost:5173.
+
+#Após efetuar o host do front-end para testar o backend digite:
+> yarn backend
+
+# E então estará rodando o backend, recarregue a página. Esse é apenas o backend criado para testes, porém idêntico ao que foi criado separadamente.
 ```
 
 ```bash
-# BACK-END
-
-# Clone o repositório back-end com:
-> git clone https://github.com/PhMoraiis/Winery/tree/backend
-
-# Entre no repositório com:
-> cd backend
-
-# Instale as dependências com:
-> npm install
-
-# Para importar o banco de dados, você precisará do MySQL Workbench.
-
-# Com o MySQL Workbench aberto, clique em 'Server' e depois em 'Data Import'.
-
-# Na janela que abrir, clique em 'Import from Self-Contained File'.
-
-# Selecione o arquivo 'crudwine_vinicolas.sql' e clique em 'Start Import'.
-
-# Feito isso no arquivo db.js, você precisará alterar o usuário e a senha do seu banco de dados.
-
-# Execute o projeto com:
-> npm start
-
-# Feito isso, você já poderá estar acessando o projeto em seu endereço 'localhost:XXXX' gerado pelo o front-end.
+## O BACKEND SE ENCONTRA NA BRANCH -BACKEND, BASTA ALTERAR A BRANCH NO GITHUB, PARA PODER VER OS ARQUIVOS REFERENTES AO BACKEND.
 ```
 
 ## 📞 Contato
