@@ -1,123 +1,139 @@
-import { useEffect, useState } from "react";
-import { Container } from "./Categories/Container";
-
-import {
-    TbPool,
-    TbTrekking,
-    TbCoffee,
-    TbMoodKid,
-    TbKayak,
-} from "react-icons/tb";
+import { useState, useEffect } from "react";
 import { GiWineGlass } from "react-icons/gi";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { MdOutlineHotel, MdOutlinePedalBike } from "react-icons/md";
 import { IoRestaurantOutline } from "react-icons/io5";
+import { MdOutlineHotel, MdOutlinePedalBike } from "react-icons/md";
+import {
+  TbCoffee,
+  TbKayak,
+  TbMoodKid,
+  TbPool,
+  TbTrekking,
+} from "react-icons/tb";
 import { RiLandscapeLine } from "react-icons/ri";
 import { BiAccessibility, BiCableCar } from "react-icons/bi";
-import { Vinicola } from "../../types";
+import { TiThSmallOutline } from "react-icons/ti";
+import { Container } from "./Categories/Container";
 
-const Filter = ({
-  vinicolas,
-  setActiveCategory,
-  activeCategory,
-  setFiltered
-}: {
-  vinicolas: Vinicola[];
-  setActiveCategory: (category: string) => void;
-  activeCategory: string;
-  setFiltered: React.Dispatch<React.SetStateAction<Vinicola[]>>;
-}) => {
-  const [filtered, setFilteredState] = useState(vinicolas);
+type Category = {
+  key: string;
+  label: string;
+}
+
+const Filter = ({ setFiltered, vinicolas }: any) => {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   useEffect(() => {
     let filtered = vinicolas;
-    if (activeCategory !== "null") {
-      filtered = filtered.filter((item) => item[activeCategory] === 1);
+  
+    if (activeCategory !== "all") {
+      filtered = filtered.filter((item: any) => item[activeCategory] === 1);
     }
-    setFilteredState(filtered);
-  }, [activeCategory, vinicolas]);
+  
+    setFiltered(filtered);
+  }, [activeCategory, setFiltered, vinicolas]);
 
   return (
     <Container>
-      <div className="flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer md:w-1/4 lg:w-1/5 xl:w-1/6">
-        <div className="flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer">
+      <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
+        <div className="flex items-center justify-center gap-6 p-3 hover:text-neutral-800 transition cursor-pointer">
           <button
-            className={activeCategory === "wine_tasting" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("wine_tasting")}>
-            <GiWineGlass size={26} />
-            Degustação
+            className={activeCategory === "all" ? "active" : ""}
+            onClick={() => setActiveCategory("all")}
+          >
+            <TiThSmallOutline size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Todas</span>
           </button>
           <button
-            className={activeCategory === "tour" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("tour")}>
-            <HiOutlineUserGroup size={26} />
-            Tour
+            className={activeCategory === "wine_tasting" ? "active" : ""}
+            onClick={() => setActiveCategory("wine_tasting")}
+          >
+            <GiWineGlass size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Degustação</span>
           </button>
           <button
-            className={activeCategory === "restaurant" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("restaurant")}>
-            <IoRestaurantOutline size={26} />
-            Restaurante
+            className={activeCategory === "tour" ? "active" : ""}
+            onClick={() => setActiveCategory("tour")}
+          >
+            <HiOutlineUserGroup size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Tour</span>
           </button>
           <button
-            className={activeCategory === "hotel" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("hotel")}>
-            <MdOutlineHotel size={26} />
-            Hotel
+            className={activeCategory === "restaurant" ? "active" : ""}
+            onClick={() => setActiveCategory("restaurant")}
+          >
+            <IoRestaurantOutline size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Restaurante</span>
           </button>
           <button
-            className={activeCategory === "bikes" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("bikes")}>
-            <MdOutlinePedalBike size={26} />
-            Bikes
+            className={activeCategory === "hotel" ? "active" : ""}
+            onClick={() => setActiveCategory("hotel")}
+          >
+            <MdOutlineHotel size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Hotel</span>
           </button>
           <button
-            className={activeCategory === "trakking" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("trakking")}>
-            <TbTrekking size={26} />
-            Trilhas
+            className={activeCategory === "bikes" ? "active" : ""}
+            onClick={() => setActiveCategory("bikes")}
+          >
+            <MdOutlinePedalBike size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Bikes</span>
           </button>
           <button
-            className={activeCategory === "viewpoint" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("viewpoint")}>
-            <RiLandscapeLine size={26} />
-            Mirante
+            className={activeCategory === "trakking" ? "active" : ""}
+            onClick={() => setActiveCategory("trakking")}
+          >
+            <TbTrekking size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Trihas</span>
           </button>
           <button
-            className={activeCategory === "cafeteria" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("cafeteria")}>
-            <TbCoffee size={26} />
-            Cafeteria
+            className={activeCategory === "viewpoint" ? "active" : ""}
+            onClick={() => setActiveCategory("viewpoint")}
+          >
+            <RiLandscapeLine size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Mirante</span>
           </button>
           <button
-            className={activeCategory === "playground" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("playground")}>
-            <TbMoodKid size={26} />
-            Playground
+            className={activeCategory === "cafeteria" ? "active" : ""}
+            onClick={() => setActiveCategory("cafeteria")}
+          >
+            <TbCoffee size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Cafeteria</span>
           </button>
           <button
-            className={activeCategory === "acessibility" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("acessibility")}>
-            <BiAccessibility size={26} />
-            Acessibilidade
+            className={activeCategory === "playground" ? "active" : ""}
+            onClick={() => setActiveCategory("playground")}
+          >
+            <TbMoodKid size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Playground</span>
           </button>
           <button
-            className={activeCategory === "pool" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("pool")}>
-            <TbPool size={26} />
-            Piscina
+            className={activeCategory === "acessibility" ? "active" : ""}
+            onClick={() => setActiveCategory("acessibility")}
+          >
+            <BiAccessibility size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Acessibilidade</span>
           </button>
           <button
-            className={activeCategory === "cable_car" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("cable_car")}>
-            <BiCableCar size={26} />
-            Teleférico
+            className={activeCategory === "pool" ? "active" : ""}
+            onClick={() => setActiveCategory("pool")}
+          >
+            <TbPool size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Piscina</span>
           </button>
           <button
-            className={activeCategory === "kayak" ? "border-b-neutral-800 text-neutral-800" : "border-transparent text-neutral-500"}
-            onClick={() => setActiveCategory("kayak")}>
-            <TbKayak size={26} />
-            Kayak
+            className={activeCategory === "cable_car" ? "active" : ""}
+            onClick={() => setActiveCategory("cable_car")}
+          >
+            <BiCableCar size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Teleférico</span>
+          </button>
+          <button
+            className={activeCategory === "kayak" ? "active" : ""}
+            onClick={() => setActiveCategory("kayak")}
+          >
+            <TbKayak size={26} className="mx-auto" />
+            <span className="block text-center font-naveidLt text-sm">Kayak</span>
           </button>
         </div>
       </div>

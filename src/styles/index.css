@@ -61,3 +61,8 @@ html {
     background-clip: text;
     color: transparent;
 }
+
+.active {
+    border-bottom: 2px solid rgb(38 38 38);
+    color: rgb(38 38 38);
+}   

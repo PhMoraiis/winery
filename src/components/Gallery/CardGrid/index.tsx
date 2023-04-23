@@ -1,84 +1,38 @@
-import { useEffect, useState } from "react";
-import { MiniCard } from "../MiniCard";
-import { API } from "../../../api";
-import { Vinicola } from "../../../types";
-import { Filter } from "../../Filters";
+import { MiniCard } from "../MiniCard"
+import { Filter } from "../../Filters"
 
-interface Categoria {
-  value: string;
-}
+import { useEffect, useState } from "react"
+import { API } from "../../../api"
 
 const CardGrid = () => {
-  const [vinicola, setVinicolas] = useState([]);
-  const [filtro, setFiltro] = useState("null" as Categoria | "null");
+  const [vinicolas, setVinicolas] = useState([])
+  const [filtered, setFiltered] = useState([])
+  const [activeCategory, setActiveCategory] = useState(1)
+
+  const getVinicolas = async () => {
+    try {
+      const res = await API.get("/vinicolas")
+      setVinicolas(res.data.sort((a: any, b: any) => (a.price > b.price ? 1 : -1)))
+      setFiltered(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await API.get("/vinicolas");
-      setVinicolas(response.data);
-    };
-    fetchData();
-  }, []);
-
-  const filterWinery = (winery: Vinicola): boolean => {
-    if (filtro === "null") {
-      return true;
-    } else {
-      return winery.toString() === filtro.toString();
-    }
-  };
-
-  const options = [
-    { value: "null" },
-    { value: "wine_tasting" },
-    { value: "tour" },
-    { value: "restaurant" },
-    { value: "hotel" },
-    { value: "bikes" },
-    { value: "trakking" },
-    { value: "viewpoint" },
-    { value: "cafeteria" },
-    { value: "playground" },
-    { value: "acessibility" },
-    { value: "pool" },
-    { value: "cable_car" },
-    { value: "kayak" },
-  ];
+    getVinicolas()
+  }, [])
 
   return (
-    <section className="text-gray-400 bg-[#F6f6f6] mt-16" id="vinicolas">
-      <div className="px-5 py-2 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="sm:text-3xl text-2xl mb-4 paragraph font-naveidBd">
-            Conheça as nossas vinícolas parceiras
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-black font-gilroyLt">
-            Nós estamos orgulhosos de trabalhar em conjunto com esses produtores
-            de excelência e de trazer a você uma seleção cuidadosamente
-            escolhida das melhores vinícolas disponíveis.
-          </p>
-        </div>
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <Filter
-            options={options}
-            value={filtro}
-            onChange={setFiltro}
-          />
-          <div className="flex flex-wrap -m-4">
-            {vinicola.filter(filterWinery).map((winery: Vinicola) => (
-              <MiniCard
-                key={winery.id}
-                id={winery.id}
-                name={winery.name}
-                description={winery.description}
-                image={winery.image}
-              />
-            ))}
-          </div>
-        </div>
+    <div id="props">
+      <Filter vinicolas={vinicolas} setFiltered={setFiltered} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
+      <div className="grid grid-cols-2 gap-8 px-8">
+        {filtered.map((item: any) => (
+          <MiniCard vinicolas={item} key={item.id} />
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  )
+}
 
-export { CardGrid };
+export { CardGrid }
