@@ -2,58 +2,34 @@ import { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 
-import { Categoria, Vinicola } from "../../../types";
 import { IProps, IFormValues } from "./type";
 
 import { API } from "../../../api";
 
 const WineryForm = ({ onSubmit, categories, vinicola }: IProps) => {
-  const [category, setCategorys] = useState<Categoria[]>([]);
   const [vinicolas, setVinicolas] = useState(vinicola || {});
 
   const { register, handleSubmit, formState } = useForm<IFormValues>();
 
   useEffect(() => {
-    API.get("http://localhost:5000/categories")
+    API.get("/vinicolas")
       .then((response) => {
-        setCategorys(response.data);
+        setVinicolas(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  const onSubmitForm = (data: IFormValues) => {
-    const novaVinicola: Vinicola = {
-      id: data.id,
-      name: data.name,
-      description: data.description,
-      image: data.image,
-      category: categories.find(
-        (categoria) => categoria.id === Number(data.category)
-      ),
-    };
-    onSubmit(novaVinicola); // chama a função onSubmit passando o objeto Vinicola
-  };
-  
 
   function handleChange(e: any) {
     const { name, value } = e.target;
     setVinicolas({ ...vinicolas, [name]: value });
   }
 
-  function handleCategory(e: any) {
-    setVinicolas({
-      ...vinicolas,
-      categories: {
-        id: e.target.value,
-        name: e.target.options[e.target.selectedIndex].text,
-      },
-    });
-  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)}>
+    <form>
       <label>
         Nome:
         <input {...register("name", { required: true })} />
@@ -73,7 +49,6 @@ const WineryForm = ({ onSubmit, categories, vinicola }: IProps) => {
         Categoria:
         <select
           {...register("category", { required: true })}
-          onChange={handleCategory}
         >
           {categories.map((categoria) => (
             <option key={categoria.id} value={categoria.id}>

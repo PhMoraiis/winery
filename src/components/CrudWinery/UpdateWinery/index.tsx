@@ -8,13 +8,7 @@ import { IProps } from "./types";
 import { IRouteParams } from "./types";
 
 const EditWinery = ({ categorias }: IProps) => {
-  const [vinicolas, setVinicola] = useState<Vinicola>({
-    id: 0,
-    name: "",
-    description: "",
-    image: "",
-    category: { id: 0, name: "" },
-  });
+  const [vinicolas, setVinicola] = useState<Vinicola>();
 
   const { id } = useParams<IRouteParams>();
   const navigate = useNavigate();

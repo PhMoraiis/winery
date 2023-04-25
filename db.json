@@ -80,15 +80,9 @@
     "users": [
         {
             "id": 1,
-            "name": "Philipe Morais",
-            "email": "philipemorais@gmail.com",
-            "password": "123456"
-        },
-        {
-            "id": 2,
-            "name": "Gabrielle Machado",
-            "email": "gabimachado@gmail.com",
-            "password": "123456"
+            "name": "First Usuario",
+            "email": "test@gmail.com",
+            "password": "test"
         }
     ]
 }

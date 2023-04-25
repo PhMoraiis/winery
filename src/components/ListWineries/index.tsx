@@ -13,7 +13,7 @@ const ListWineries
   useEffect(() => {
     const fetchVinicolas = async () => {
       try {
-        const response = await API.get("/api/vinicolas");
+        const response = await API.get("/vinicolas");
         setVinicolasState(response.data);
       } catch (error) {
         console.error("Erro ao buscar vinícolas:", error);
@@ -53,7 +53,6 @@ const ListWineries
               <td>{vinicola.name}</td>
               <td>{vinicola.description}</td>
               <td>{vinicola.image}</td>
-              <td>{vinicola.category ? vinicola.category.name : ""}</td>
               <td>
                 <UpdateWinery
                   vinicola={vinicola}
