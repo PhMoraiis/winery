@@ -32,18 +32,18 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
   return (
     <Container>
       <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
-        <div className="flex items-center justify-center gap-6 p-3 hover:text-neutral-800 transition cursor-pointer">
+        <div className="flex items-center justify-center gap-6 p-3 cursor-pointer">
           <button
-            className={activeCategory === "all" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "all" ? "active" : ""}`}
             onClick={() => setActiveCategory("all")}
           >
             <TiThSmallOutline size={26} className="mx-auto" />
-            <span className="block text-center font-naveidLt text-sm">
+            <span className="block text-center font-naveidLt text-sm ">
               Todas
             </span>
           </button>
           <button
-            className={activeCategory === "wine_tasting" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "wine_tasting" ? "active" : ""}`}
             onClick={() => setActiveCategory("wine_tasting")}
           >
             <GiWineGlass size={26} className="mx-auto" />
@@ -52,7 +52,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "tour" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "tour" ? "active" : ""}`}
             onClick={() => setActiveCategory("tour")}
           >
             <HiOutlineUserGroup size={26} className="mx-auto" />
@@ -61,7 +61,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "restaurant" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "restaurant" ? "active" : ""}`}
             onClick={() => setActiveCategory("restaurant")}
           >
             <IoRestaurantOutline size={26} className="mx-auto" />
@@ -70,7 +70,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "hotel" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "hotel" ? "active" : ""}`}
             onClick={() => setActiveCategory("hotel")}
           >
             <MdOutlineHotel size={26} className="mx-auto" />
@@ -79,7 +79,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "bikes" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "bikes" ? "active" : ""}`}
             onClick={() => setActiveCategory("bikes")}
           >
             <MdOutlinePedalBike size={26} className="mx-auto" />
@@ -88,7 +88,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "trakking" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "trakking" ? "active" : ""}`}
             onClick={() => setActiveCategory("trakking")}
           >
             <TbTrekking size={26} className="mx-auto" />
@@ -97,7 +97,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "viewpoint" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "viewpoint" ? "active" : ""}`}
             onClick={() => setActiveCategory("viewpoint")}
           >
             <RiLandscapeLine size={26} className="mx-auto" />
@@ -106,7 +106,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "cafeteria" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "cafeteria" ? "active" : ""}`}
             onClick={() => setActiveCategory("cafeteria")}
           >
             <TbCoffee size={26} className="mx-auto" />
@@ -115,7 +115,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "playground" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "playground" ? "active" : ""}`}
             onClick={() => setActiveCategory("playground")}
           >
             <TbMoodKid size={26} className="mx-auto" />
@@ -124,7 +124,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "acessibility" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "acessibility" ? "active" : ""}`}
             onClick={() => setActiveCategory("acessibility")}
           >
             <BiAccessibility size={26} className="mx-auto" />
@@ -133,7 +133,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "pool" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "pool" ? "active" : ""}`}
             onClick={() => setActiveCategory("pool")}
           >
             <TbPool size={26} className="mx-auto" />
@@ -142,7 +142,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "cable_car" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "cable_car" ? "active" : ""}`}
             onClick={() => setActiveCategory("cable_car")}
           >
             <BiCableCar size={26} className="mx-auto" />
@@ -151,7 +151,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
             </span>
           </button>
           <button
-            className={activeCategory === "kayak" ? "active" : ""}
+            className={`hover:text-neutral-800 transition duration-200 ${activeCategory === "kayak" ? "active" : ""}`}
             onClick={() => setActiveCategory("kayak")}
           >
             <TbKayak size={26} className="mx-auto" />

@@ -1,4 +1,3 @@
-import { Card } from "flowbite-react";
 import { MdOutlineHotel, MdOutlinePedalBike } from "react-icons/md";
 import { BiAccessibility, BiCableCar } from "react-icons/bi";
 import { GiWineGlass } from "react-icons/gi";
@@ -15,19 +14,19 @@ import {
 
 const MiniCard = ({ vinicolas }: any) => {
   return (
-    <div className="gap-10 mt-4 bg-[#f6f6f6]">
-      <Card
-        imgSrc={vinicolas.image}
-        imgAlt={vinicolas.nome}
-        className="items-center"
-      >
-        <h1 className="text-center uppercase text-2xl text-[#0B141A] max-w-[300px]">
-          {vinicolas.nome}
-        </h1>
-        <p className="mt-2 text-gray-500 max-w-[400px]">
-          {vinicolas.description}
-        </p>
-        <ul className="my-4 flex flex-wrap justify-center mx-auto">
+    <div className="lg:w-1.5/3 sm:w-2/4 max-xl:w-screen p-4 bg-[#f6f6f6]">
+      <div className="flex relative shadow-lg shadow-gray-300 h-full">
+        <img
+          alt="gallery"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          src={vinicolas.image}
+        />
+        <div className="px-8 py-10 relative z-10 w-full border-4 border-[#F7f7f7] bg-[#F6f6f6] opacity-0 hover:opacity-100">
+          <h2 className="tracking-widest text-[1rem] title-font font-naveidBd paragraph2 mb-1">
+            {vinicolas.name}
+          </h2>
+          <p className="leading-relaxed font-gilroyLt">{vinicolas.description}</p>
+          <ul className="my-4 flex flex-wrap justify-center mx-auto">
           <div className="flex">
             {vinicolas.wine_tasting ? (
               <GiWineGlass size={26} className="text-[#0B141A] mr-2" />
@@ -70,7 +69,8 @@ const MiniCard = ({ vinicolas }: any) => {
             ) : null}
           </div>
         </ul>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };

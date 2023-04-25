@@ -62,6 +62,15 @@ html {
     color: transparent;
 }
 
+.paragraph2 {
+    background-image: url('../../public/Gradient.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    color: transparent;
+}
+
 .active {
     border-bottom: 2px solid rgb(38 38 38);
     color: rgb(38 38 38);
