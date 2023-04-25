@@ -8,27 +8,28 @@ const CardGrid = () => {
   const [vinicolas, setVinicolas] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [activeCategory, setActiveCategory] = useState(1);
+  const [noResults, setNoResults] = useState(false);
 
-  // renamed function to follow camelCase naming convention
   const getVinicolas = async () => {
     try {
-      // removed debugging statement
       const response = await API.get("/vinicolas");
-      // renamed variables to follow camelCase naming convention
       const sortedVinicolas = response.data.sort((a: any, b: any) =>
         a.price > b.price ? 1 : -1
       );
-      // removed debugging statement
       setVinicolas(sortedVinicolas);
       setFiltered(sortedVinicolas);
     } catch (error) {
-      console.error(error); // used console.error instead of console.log for error messages
+      console.error(error);
     }
   };
 
   useEffect(() => {
     getVinicolas();
   }, []);
+
+  useEffect(() => {
+    setNoResults(filtered.length === 0);
+  }, [filtered]);
 
   return (
     <section id="vinicolas" className="text-gray-600 bg-[#F6f6f6] mt-16">
@@ -51,9 +52,20 @@ const CardGrid = () => {
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
             />
-            {filtered.map((item: any) => (
-              <MiniCard vinicolas={item} key={item.id} />
-            ))}
+            {noResults ? (
+              <div className="max-w-lg mx-auto space-y-3 text-center py-16">
+              <h3 className="paragraph text-4xl font-naveidBd sm:text-5xl">
+                  Nenhuma vinicola foi encontrada.
+              </h3>
+              <p className="text-black text-lg font-gilroyLt">
+                  Desculpe, por favor tente novamente com outro filtro.
+              </p>
+          </div>
+            ) : (
+              filtered.map((item: any) => (
+                <MiniCard vinicolas={item} key={item.id} />
+              ))
+            )}
           </div>
         </div>
       </div>

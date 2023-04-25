@@ -13,7 +13,7 @@ import {
 import { RiLandscapeLine } from "react-icons/ri";
 import { BiAccessibility, BiCableCar } from "react-icons/bi";
 import { TiThSmallOutline } from "react-icons/ti";
-import { Container } from "./Categories/Container";
+import { Container } from "./Container";
 
 const Filter = ({ setFiltered, vinicolas }: any) => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
