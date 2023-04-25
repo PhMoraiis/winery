@@ -24,6 +24,7 @@ const Filter = ({ setFiltered, vinicolas }: any) => {
     if (activeCategory !== "all") {
       filteredVinicolas = filteredVinicolas.filter(
         (vinicola: any) => vinicola[activeCategory] === true);
+        (vinicola: any) => vinicola[activeCategory] === 1;
     }
 
     setFiltered(filteredVinicolas);

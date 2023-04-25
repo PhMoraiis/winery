@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Casa Silva",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit, incidunt, minima officiis temporibus doloremque quos optio officia assumenda autem doloribus consequatur veniam iste, distinctio ut ipsum rerum eos natus!",
+            "description": "San Fernando, Región del Libertador General Bernardo O’Higgins. Colchagua, Chile",
             "image": "https://cdn.shopify.com/s/files/1/0640/9784/5461/products/casaSilva1.png?v=1652823694",
             "wine_tasting": true,
             "tour": true,
@@ -22,7 +22,7 @@
         {
             "id": 2,
             "name": "Caminomar",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit, incidunt, minima officiis temporibus doloremque quos optio officia assumenda autem doloribus consequatur veniam iste, distinctio ut ipsum rerum eos natus!",
+            "description": "Peralillo, O'Higgins. Colchagua, Chile",
             "image": "https://www.vintrail.com/uploads/club_owner_image/image_683370175.jpg",
             "wine_tasting": false,
             "tour": true,
@@ -41,7 +41,7 @@
         {
             "id": 3,
             "name": "Flaherty Wines",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit, incidunt, minima officiis temporibus doloremque quos optio officia assumenda autem doloribus consequatur veniam iste, distinctio ut ipsum rerum eos natus!",
+            "description": "1037 E-713, Santa Maria, Valparaíso. Aconcagua, Chile",
             "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/9a/ce/bc/the-winery-is-located.jpg?w=1200&h=-1&s=1",
             "wine_tasting": true,
             "tour": true,
@@ -60,7 +60,7 @@
         {
             "id": 4,
             "name": "Narbona Wines",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit, incidunt, minima officiis temporibus doloremque quos optio officia assumenda autem doloribus consequatur veniam iste, distinctio ut ipsum rerum eos natus!",
+            "description": "155 Balmaceda, Quillota, Valparaíso. Aconcagua, Chile",
             "image": "http://www.narbona.com.uy/wp-content/uploads/2016/07/bodega.jpg",
             "wine_tasting": true,
             "tour": false,
