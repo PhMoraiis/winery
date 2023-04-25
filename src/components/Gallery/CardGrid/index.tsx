@@ -1,4 +1,4 @@
-import { MiniCard } from "../MiniCard";
+import { MiniCard } from "../MiniCard/teste";
 import { Filter } from "../../Filters";
 
 import { useEffect, useState } from "react";
