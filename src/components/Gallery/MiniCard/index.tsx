@@ -15,7 +15,7 @@ import {
 
 const MiniCard = ({ vinicolas }: any) => {
   return (
-    <div className="gap-10 mt-10 bg-[#f6f6f6]">
+    <div className="gap-10 mt-4 bg-[#f6f6f6]">
       <Card
         imgSrc={vinicolas.image}
         imgAlt={vinicolas.nome}
@@ -24,52 +24,49 @@ const MiniCard = ({ vinicolas }: any) => {
         <h1 className="text-center uppercase text-2xl text-[#0B141A] max-w-[300px]">
           {vinicolas.nome}
         </h1>
-        <h3 className="text-center uppercase font-bold text-[#0B141A] max-w-[300px]">
-          {vinicolas.local}
-        </h3>
         <p className="mt-2 text-gray-500 max-w-[400px]">
           {vinicolas.description}
         </p>
         <ul className="my-4 flex flex-wrap justify-center mx-auto">
           <div className="flex">
             {vinicolas.wine_tasting ? (
-              <GiWineGlass className="text-[#0B141A] mr-2 text-2xl" />
+              <GiWineGlass size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.tour ? (
-              <HiOutlineUserGroup className="text-[#0B141A] mr-2 text-2xl" />
+              <HiOutlineUserGroup size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.restaurant ? (
-              <IoRestaurantOutline className="text-[#0B141A] mr-2 text-2xl" />
+              <IoRestaurantOutline size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.hotel ? (
-              <MdOutlineHotel className="text-[#0B141A] mr-2 text-2xl" />
+              <MdOutlineHotel size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.bikes ? (
-              <MdOutlinePedalBike className="text-[#0B141A] mr-2 text-2xl" />
+              <MdOutlinePedalBike size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.trakking ? (
-              <TbTrekking className="text-[#0B141A] mr-2 text-2xl" />
+              <TbTrekking size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.viewpoint ? (
-              <RiLandscapeLine className="text-[#0B141A] mr-2 text-2xl" />
+              <RiLandscapeLine size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.cafeteria ? (
-              <TbCoffee className="text-[#0B141A] mr-2 text-2xl" />
+              <TbCoffee size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.playground ? (
-              <TbMoodKid className="text-[#0B141A] mr-2 text-2xl" />
+              <TbMoodKid size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.acessibility ? (
-              <BiAccessibility className="text-[#0B141A] mr-2 text-2xl" />
+              <BiAccessibility size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.pool ? (
-              <TbPool className="text-[#0B141A] mr-2 text-2xl" />
+              <TbPool size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.cable_car ? (
-              <BiCableCar className="text-[#0B141A] mr-2 text-2xl" />
+              <BiCableCar size={26} className="text-[#0B141A] mr-2" />
             ) : null}
             {vinicolas.kayak ? (
-              <TbKayak className="text-[#0B141A] mr-2 text-2xl" />
+              <TbKayak size={26} className="text-[#0B141A] mr-2" />
             ) : null}
           </div>
         </ul>
