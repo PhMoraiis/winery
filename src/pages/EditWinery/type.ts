@@ -1,5 +1,5 @@
-export interface Vinicola {
-    id: number;
+export interface WineryFormProps {
+    id: string;
     name: string;
     description: string;
     image: string;
@@ -16,4 +16,4 @@ export interface Vinicola {
     pool: boolean;
     cable_car: boolean;
     kayak: boolean;
-}
+  }

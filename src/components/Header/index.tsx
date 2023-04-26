@@ -62,7 +62,7 @@ const Header = () => {
               return (
                 <li
                   key={idx}
-                  className="text-gray-700 text-[1rem] hover:text-[#ae1b1e]"
+                  className="text-gray-700 text-[1rem] hover:text-[]"
                 >
                   <a href={item.to} className="block">
                     {item.title}
