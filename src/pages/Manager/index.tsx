@@ -54,7 +54,6 @@ const Manager = () => {
           <tr className="text-left gradient text-gray-700 font-gilroyLt">
             <th className="py-2 px-4 text-white">Nome</th>
             <th className="py-2 px-4 text-white">Descrição</th>
-            <th className="py-2 px-2 text-white">Editar</th>
             <th className="py-2 px-2 text-white">Excluir</th>
           </tr>
         </thead>
@@ -63,11 +62,6 @@ const Manager = () => {
             <tr key={winery.id} className="hover:bg-gray-200 font-gilroyLt">
               <td className="py-4 px-6">{winery.name}</td>
               <td className="py-4 px-6">{winery.description}</td>
-              <td className="py-4 px-2 text-center">
-                <Link to={`/winery/${winery.id}`}>
-                  <BiEdit className="text-3xl text-[#fc9f32]" />
-                </Link>
-              </td>
               <td className="py-4 px-2 text-center">
                 <button
                   onClick={(e) => {

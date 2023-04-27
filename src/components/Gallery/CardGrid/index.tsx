@@ -52,15 +52,17 @@ const CardGrid = () => {
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
             />
-            {noResults ? (
-              <div className="max-w-lg mx-auto space-y-3 text-center py-16">
-              <h3 className="paragraph text-4xl font-naveidBd sm:text-5xl">
-                  Nenhuma vinicola foi encontrada.
-              </h3>
-              <p className="text-black text-lg font-gilroyLt">
-                  Desculpe, por favor tente novamente com outro filtro.
-              </p>
           </div>
+          <div className="flex flex-wrap -m-4">
+            {noResults ? (
+              <div className=" mx-auto space-y-3 text-center py-16">
+                <h3 className="paragraph text-4xl font-naveidBd sm:text-5xl">
+                  Nenhuma vinicola foi encontrada.
+                </h3>
+                <p className="text-black text-lg font-gilroyLt">
+                  Desculpe, por favor tente novamente com outro filtro.
+                </p>
+              </div>
             ) : (
               filtered.map((item: any) => (
                 <MiniCard vinicolas={item} key={item.id} />

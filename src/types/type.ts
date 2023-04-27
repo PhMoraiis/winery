@@ -1,5 +1,5 @@
-export interface WineryFormProps {
-    id: string;
+export interface VinicolaFormProps extends React.HTMLAttributes<HTMLFormElement> {
+    id?: string;
     name: string;
     description: string;
     image: string;
@@ -16,4 +16,7 @@ export interface WineryFormProps {
     pool: boolean;
     cable_car: boolean;
     kayak: boolean;
+    onInputChange?: any;
+    onCheckboxChange?: any;
+    handleCadastro?: any;
   }
