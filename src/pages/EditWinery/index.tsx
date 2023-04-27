@@ -47,21 +47,11 @@ const WineryEditForm = () => {
       });
   };
 
-  const handleDelete = () => {
-    // excluir vinícola do backend
-    API.delete(`/vinicolas/${winery.id}`, { responseType: 'json' })
-      .then((response: AxiosResponse) => {
-        console.log('Winery deleted:', response.data);
-      })
-      .catch((error: AxiosError) => {
-        console.error(error);
-      });
-  };
-
   return (
-    <div>
-      <h1>Edit Winery</h1>
+    <div className="max-w-screen-lg mx-auto px-4 md:px-8 lg:px-16">
+      <h1 className="text-2xl font-bold mb-4">Edit Winery</h1>
       <WineryForm
+        id={winery.id}
         name={winery.name}
         description={winery.description}
         image={winery.image}
@@ -79,8 +69,7 @@ const WineryEditForm = () => {
         cable_car={winery.cable_car}
         kayak={winery.kayak}
       />
-      <button onClick={handleSave}>Save</button>
-      <button onClick={handleDelete}>Deletar Vinicola</button>
+      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4" onClick={handleSave}>Save</button>
     </div>
   );
 };

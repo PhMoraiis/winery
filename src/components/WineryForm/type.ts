@@ -1,6 +1,7 @@
 import { SubmitHandler, UseFormRegister } from "react-hook-form";
 
 export interface VinicolaFormProps extends React.HTMLAttributes<HTMLFormElement> {
+  id?: string;
   name: string;
   description: string;
   image: string;
@@ -17,10 +18,6 @@ export interface VinicolaFormProps extends React.HTMLAttributes<HTMLFormElement>
   pool: boolean;
   cable_car: boolean;
   kayak: boolean;
-}
-
-export interface WineryFormProps {
-  register: UseFormRegister<FormData>;
-  handleSubmit: SubmitHandler<FormData>;
-  errors: Record<string, any>;
+  onInputChange?: any;
+  onCheckboxChange?: any;
 }

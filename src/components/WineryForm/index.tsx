@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { VinicolaFormProps, WineryFormProps } from "./type";
+import { VinicolaFormProps } from "./type";
 
-const WineryForm: React.FC<WineryFormProps> = () => {
+const WineryForm: React.FC<VinicolaFormProps> = () => {
   const [vinicola, setVinicola] = useState<VinicolaFormProps>({
+    id: "",
     name: "",
     description: "",
     image: "",
@@ -19,6 +20,8 @@ const WineryForm: React.FC<WineryFormProps> = () => {
     pool: false,
     cable_car: false,
     kayak: false,
+    onInputChange: () => {},
+    onCheckboxChange: () => {},
   });  
 
   function handleSubmitForm(event: any) {
@@ -33,45 +36,48 @@ const WineryForm: React.FC<WineryFormProps> = () => {
   return (
     <form
       onSubmit={handleSubmitForm}
-      className="bg-[#f6f6f6] py-6 px-6 rounded-md md:w-2/3 lg:w-[70vw] mx-auto"
+      className="bg-[#f6f6f6] py-6 px-6 rounded-md shadow-xl md:w-2/3 lg:w-[80vw] mx-auto border-2 border-[#fc9f32]"
     >
       <div className="flex flex-col md:flex-row">
-        <label className="block mb-4 text-gray-700 md:w-1/4 font-naveidRg items-center flex">
+        <label className="block mb-4 mt-2 text-gray-700 md:w-1/4 font-naveidRg items-center">
           Nome*:
         </label>
         <input
           type="text"
-          className="block w-full border-gray-500 rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] md:w-4/4"
+          name="name"
+          className="block w-full rounded-md shadow-lg mb-4 border-[#fc9f32] focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] md:w-4/4"
           value={vinicola.name}
           onChange={(e) => setVinicola({ ...vinicola, name: e.target.value })}
         />
 
-        <label className="block mb-4 ml-10 text-gray-700 md:w-2/4 font-naveidRg items-center flex">
+        <label className="block mb-4 ml-10 mt-2 text-gray-700 md:w-2/4 font-naveidRg items-center">
           URL da imagem*:
         </label>
         <input
           type="text"
-          className="block w-full border-gray-500 rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] md:w-4/4"
+          name="image"
+          className="block w-full border-[#fc9f32] rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] md:w-4/4"
           value={vinicola.image}
           onChange={(e) => setVinicola({ ...vinicola, image: e.target.value })}
         />
       </div>
       <label className="block mb-2 text-gray-700 font-naveidRg">Descrição*:</label>
       <textarea
-        className="block w-full border-gray-500 rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] resize-none"
-        rows={3}
+        className="block w-full border-[#fc9f32] rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] resize-none"
+        rows={4}
         value={vinicola.description}
+        name="description"
         onChange={(e) =>
           setVinicola({ ...vinicola, description: e.target.value })
         }
       ></textarea>
 
-      <label className="block mb-2 text-gray-700 font-naveidRg">Categorias</label>
+      <label className="block mb-2 text-gray-700 font-naveidRg">Categorias:</label>
       <div className="mb-4 grid grid-cols-2 md:grid-cols-4 gap-4">
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="wine_tasting"
             value="wine_tasting"
             checked={vinicola.wine_tasting}
             onChange={(e) =>
@@ -84,7 +90,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="tour"
             value="tour"
             checked={vinicola.tour}
             onChange={(e) =>
@@ -97,7 +103,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="restaurant"
             value="restaurant"
             checked={vinicola.restaurant}
             onChange={(e) =>
@@ -110,7 +116,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="hotel"
             value="hotel"
             checked={vinicola.hotel}
             onChange={(e) =>
@@ -123,7 +129,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="bikes"
             value="bikes"
             checked={vinicola.bikes}
             onChange={(e) =>
@@ -136,7 +142,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="trakking"
             value="trakking"
             checked={vinicola.trakking}
             onChange={(e) =>
@@ -149,7 +155,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="viewpoint"
             value="viewpoint"
             checked={vinicola.viewpoint}
             onChange={(e) =>
@@ -162,7 +168,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="cafeteria"
             value="cafeteria"
             checked={vinicola.cafeteria}
             onChange={(e) =>
@@ -175,7 +181,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="playground"
             value="playground"
             checked={vinicola.playground}
             onChange={(e) =>
@@ -188,7 +194,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="accessibility"
             value="accessibility"
             checked={vinicola.accessibility}
             onChange={(e) =>
@@ -201,7 +207,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="pool"
             value="pool"
             checked={vinicola.pool}
             onChange={(e) =>
@@ -214,7 +220,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="cable_car"
             value="cable_car"
             checked={vinicola.cable_car}
             onChange={(e) =>
@@ -227,7 +233,7 @@ const WineryForm: React.FC<WineryFormProps> = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            name="categorias"
+            name="kayak"
             value="kayak"
             checked={vinicola.kayak}
             onChange={(e) =>
@@ -238,13 +244,6 @@ const WineryForm: React.FC<WineryFormProps> = () => {
           <span className="ml-3 text-gray-700 font-naveidRg">Kayak</span>
         </label>
       </div>
-
-      <button
-        type="submit"
-        className="gradient text-white font-naveidEl py-2 px-4 rounded-md mt-4"
-      >
-        Salvar
-      </button>
     </form>
   );
 };
