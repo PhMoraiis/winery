@@ -1,16 +1,32 @@
 version: '3'
 services:
-  node:
-    build: .
-    command: "yarn start"
-    working_dir: /home/node/app
+  database:
     image: postgres
+    container_name: database_winery
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: winery
+      POSTGRES_PASSWORD: winerypass
       POSTGRES_DB: winery_crud
     expose:
-      - "3000"
+      - "5432"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: api_winery_app
     ports:
       - "3000:3000"
+    volumes:
+      - .:/usr/app
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local
