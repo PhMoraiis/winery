@@ -1,11 +1,16 @@
 version: '3'
 services:
-  db:
+  node:
+    build: .
+    command: "yarn start"
+    working_dir: /home/node/app
     image: postgres
     restart: always
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: winery_crud
+    expose:
+      - "3000"
     ports:
-      - "5432:5432"
+      - "3000:3000"
