@@ -1,5 +1,4 @@
 import { Vinicola } from "../../entities/Vinicola";
-import { VinicolaCategoria } from "../../entities/VinicolaCategoria";
 import { DataSource } from "typeorm";
 
 type VinicolaUpdateRequest = {
