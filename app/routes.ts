@@ -11,6 +11,10 @@ import { CreateUserController } from './controllers/User/CreateUserController';
 
 const routes = Router();
 
+routes.get("/", (req, res) => {
+    res.send("Hello World! Você está na raiz da API!");
+})
+
 routes.post("/vinicolas", new CreateVinicolaController().handle)
 routes.get("/vinicolas", new GetAllVinicolaController().handle)
 routes.delete("/vinicolas/:id", new DeleteVinicolaController().handle)
