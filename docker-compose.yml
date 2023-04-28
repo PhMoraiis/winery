@@ -2,7 +2,7 @@ version: '3'
 services:
   node:
     build: .
-    command: npm run start
+    command: sh -c 'DATABASE_URL=postgres://adminwinery:adminpasswinery@db/winery_crud npm run start'
     working_dir: /home/node/app
     expose:
       - "3000"
