@@ -1,32 +1,26 @@
 version: '3'
 services:
-  database:
-    image: postgres
-    container_name: database_winery
-    restart: always
-    environment:
-      POSTGRES_USER: winery
-      POSTGRES_PASSWORD: winerypass
-      POSTGRES_DB: winery_crud
-    expose:
-      - "5432"
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/data/postgres
-
-  app:
+  node:
     build: .
-    container_name: api_winery_app
+    command: npm run start
+    working_dir: /home/node/app
+    expose:
+      - "3000"
     ports:
       - "3000:3000"
-    volumes:
-      - .:/usr/app
-    links:
-      - database
+    environment:
+      - NODE_ENV=production
+      - DB_NAME=winery_crud
+      - DB_PASSWORD=adminWinery
+      - DB_USER=postgresWinery
+      - DB_HOST=db
     depends_on:
-      - database
-
-volumes:
-  pgdata:
-    driver: local
+      - db
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=adminWinery
+      - POSTGRES_USER=postgresWinery
+      - POSTGRES_DB=winery_crud
+    volumes:
+      - /path/to/db:/var/lib/postgresql/data
