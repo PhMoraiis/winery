@@ -12,14 +12,8 @@
       "typeorm": "typeorm-ts-node-commonjs",
       "typeorm:run": "npm run typeorm migration:run -d app/data-source.ts",
       "typeorm:revert": "npm run typeorm migration:revert -d app/data-source.ts",
-<<<<<<< HEAD
-      "typeorm:create": "npm run typeorm migration:create app/migrations/",
-      "typeorm:generate": "typeorm migration:generate -d app/data-source.ts app/migrations/default"
-=======
       "typeorm:create": "npm run typeorm migration:create app/migrations/populate",
-      "typeorm:generate": "typeorm migration:generate -d app/data-source.ts app/migrations/default",
-      "start": "ts-node app/index.ts"
->>>>>>> cc557878840738cb47476d370b6c373e20b9a62f
+      "typeorm:generate": "typeorm migration:generate -d app/data-source.ts app/migrations/default"
    },
    "dependencies": {
       "dotenv": "^16.0.3",
