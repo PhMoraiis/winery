@@ -1,21 +1,32 @@
-version: '3'
+version: '3.9'
+
 services:
   node:
     build: .
-    command: sh -c 'DATABASE_URL=postgres://adminwinery:adminpasswinery@db/winery_crud npm run start'
+    container_name: vineyard_api
     working_dir: /home/node/app
     expose:
       - "3000"
     ports:
       - "3000:3000"
+    links:
+      - database
     depends_on:
-      - db
-  db:
+      - database
+
+  database:
     image: postgres
+    container_name: database_vineyard_api
     restart: always
-    environment:
-      POSTGRES_USER: adminwinery
-      POSTGRES_PASSWORD: adminpasswinery
-      POSTGRES_DB: winery_crud
     ports:
-      - "5432:5432"
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=adminvineyard
+      - POSTGRES_PASSWORD=vineyardpass
+      - POSTGRES_DB=winery_crud
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local

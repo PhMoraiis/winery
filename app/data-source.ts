@@ -3,10 +3,10 @@ import { DataSource } from "typeorm"
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
+    host: "database",
     port: 5432,
-    username: "adminwinery",
-    password: "adminpasswinery",
+    username: "adminvineyard",
+    password: "vineyardpass",
     database: "winery_crud",
     synchronize: true,
     logging: false,

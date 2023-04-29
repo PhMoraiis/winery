@@ -6,13 +6,14 @@
    "author": "Philipe Barbosa de Morais <liperapltda@gmail.com>",
    "license": "MIT",
    "scripts": {
-      "dev": "ts-node-dev --respawn --transpile-only app/index.ts",
+      "dev": "tsnd --respawn --transpile-only --exit-child --ignore-watch node_modules app/index.ts",
+      "build": "tsc",
+      "start": "ts-node app/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
       "typeorm:run": "npm run typeorm migration:run -d app/data-source.ts",
       "typeorm:revert": "npm run typeorm migration:revert -d app/data-source.ts",
       "typeorm:create": "npm run typeorm migration:create app/migrations/",
-      "typeorm:generate": "typeorm migration:generate -d app/data-source.ts app/migrations/default",
-      "start": "ts-node app/index.ts"
+      "typeorm:generate": "typeorm migration:generate -d app/data-source.ts app/migrations/default"
    },
    "dependencies": {
       "dotenv": "^16.0.3",
