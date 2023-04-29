@@ -12,7 +12,7 @@
       "typeorm": "typeorm-ts-node-commonjs",
       "typeorm:run": "npm run typeorm migration:run -d app/data-source.ts",
       "typeorm:revert": "npm run typeorm migration:revert -d app/data-source.ts",
-      "typeorm:create": "npm run typeorm migration:create app/migrations/populate",
+      "typeorm:create": "npm run typeorm migration:create app/migrations/testingpopulate",
       "typeorm:generate": "typeorm migration:generate -d app/data-source.ts app/migrations/default"
    },
    "dependencies": {

@@ -3,11 +3,7 @@ import { DataSource } from "typeorm"
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-<<<<<<< HEAD
     host: "database",
-=======
-    host: "db",
->>>>>>> cc557878840738cb47476d370b6c373e20b9a62f
     port: 5432,
     username: "adminvineyard",
     password: "vineyardpass",

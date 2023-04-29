@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  node:
+  app:
     build: .
     container_name: vineyard_api
     working_dir: /home/node/app
@@ -21,6 +21,7 @@ services:
     ports:
       - 5432:5432
     environment:
+      - POSTGRES_HOST=database
       - POSTGRES_USER=adminvineyard
       - POSTGRES_PASSWORD=vineyardpass
       - POSTGRES_DB=winery_crud
