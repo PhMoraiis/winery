@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  front-app:
+    build: .
+    container_name: vineyard_front
+    working_dir: /home/node/src
+    expose:
+      - "80"
+    ports:
+      - "80:80"

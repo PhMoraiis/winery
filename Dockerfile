@@ -2,9 +2,9 @@ FROM node:18-alpine
 
 RUN npm install -g npm@9.5.0 postgresql-client
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir -p /home/node/src/node_modules && chown -R node:node /home/node/app
 
-WORKDIR /home/node/app
+WORKDIR /home/node/src
 
 COPY package.json ./
 
