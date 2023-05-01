@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'docker.thewineriesworld.com',
+    baseURL: 'http://docker.thewineriesworld.com/vinicolas',
 });
 
 export { API }

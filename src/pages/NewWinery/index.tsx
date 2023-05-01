@@ -28,7 +28,7 @@ const WineryCreateForm = () => {
 
   const handleCadasterVinicola = async () => {
     try {
-      const response = await API.post("/vinicolas", vinicola, {
+      const response = await API.post("", vinicola, {
         responseType: "json",
       });
       console.log("Vinícola criada:", response.data);

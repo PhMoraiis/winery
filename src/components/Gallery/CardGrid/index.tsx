@@ -12,7 +12,7 @@ const CardGrid = () => {
 
   const getVinicolas = async () => {
     try {
-      const response = await API.get("/vinicolas");
+      const response = await API.get("");
       const sortedVinicolas = response.data.sort((a: any, b: any) =>
         a.price > b.price ? 1 : -1
       );

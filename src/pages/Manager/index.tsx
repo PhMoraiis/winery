@@ -17,7 +17,7 @@ const Manager = () => {
   useEffect(() => {
     async function fetchVinicolas() {
       try {
-        const response = await API.get("/vinicolas");
+        const response = await API.get("");
         setVinicolas(response.data);
       } catch (error) {
         console.log(error);
@@ -29,7 +29,7 @@ const Manager = () => {
   const handleDelete = (vinicola: Vinicola) => {
     // excluir vinícola do backend
     setDeleting(true);
-    API.delete(`/vinicolas/${vinicola.id}`, { responseType: "json" })
+    API.delete(`/${vinicola.id}`, { responseType: "json" })
       .then((response: AxiosResponse) => {
         console.log("Winery deleted:", response.data);
         setDeleted(vinicola);

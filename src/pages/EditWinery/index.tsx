@@ -27,7 +27,7 @@ const WineryEditForm = () => {
   useEffect(() => {
     if (winery.id) {
       // buscar dados da vinícola no backend e atualizar o estado
-      API.get(`/vinicolas/${winery.id}`, { responseType: "json" })
+      API.get(`/${winery.id}`, { responseType: "json" })
         .then((response: AxiosResponse<VinicolaFormProps>) => {
           setWinery(response.data);
         })
@@ -42,7 +42,7 @@ const WineryEditForm = () => {
     // enviar dados atualizados da vinícola para o backend
     const updatedWinery = { ...winery };
     delete updatedWinery.id;
-    API.put(`/vinicolas/${winery.id}`, updatedWinery, { responseType: "json" })
+    API.put(`/${winery.id}`, updatedWinery, { responseType: "json" })
       .then((response: AxiosResponse<VinicolaFormProps>) => {
         console.log("Winery updated:", response.data);
       })
