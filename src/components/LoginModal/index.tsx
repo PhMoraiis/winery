@@ -26,6 +26,8 @@ const LoginModal = () => {
   const validUsers = [
     { email: "rodrigo.rng@gmail.com", password: "winery7675" },
   ];
+
+  // ACONSELHO COLOCAR ESSE LOGIN EM UM ARQUIVO ENV
   const isValidUser = (email: string, password: string) => {
     return validUsers.some(
       (user) => user.email === email && user.password === password
