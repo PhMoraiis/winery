@@ -1,8 +1,17 @@
-FROM node:latest
-WORKDIR /app
-COPY package*.json ./
-RUN yarn
-RUN yarn build
+FROM node:18-alpine
+
+RUN npm install -g npm@9.5.0 postgresql-client
+
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+
+COPY package.json ./
+
+RUN npm install --legacy-peer-deps
+
 COPY --chown=node:node . .
-EXPOSE 8000
-CMD ["yarn", "dev"]
+
+EXPOSE 80
+
+CMD ["npm", "run", "dev"]
