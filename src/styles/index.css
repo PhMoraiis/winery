@@ -47,14 +47,14 @@ html {
 }
 
 .gradient {
-    background-image: url('../../public/Gradient2.png');
+    background-image: linear-gradient(90deg, #ae1b1e 0%, #fc9f32 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .paragraph {
-    background-image: url('../../public/Gradient2.png');
+    background-image: linear-gradient(90deg, #ae1b1e 0%, #fc9f32 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -63,7 +63,7 @@ html {
 }
 
 .paragraph2 {
-    background-image: url('../../public/Gradient.png');
+    background-image: linear-gradient(90deg, #ae1b1e 0%, #fc9f32 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

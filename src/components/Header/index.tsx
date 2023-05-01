@@ -14,7 +14,7 @@ const Header = () => {
     <nav className="border-b w-full md:static md:text-sm md:border-none bg-[#F6f6f6] font-naveidEl">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <a href="/" className="text-xl font-naveidMd">House Winery</a>
+          <a href="/" className="text-xl font-naveidMd">The Wineries World</a>
           <div className="md:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"
@@ -73,7 +73,7 @@ const Header = () => {
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
               <li>
-                <LoginModal />
+                <LoginModal  />
               </li>
             </div>
           </ul>

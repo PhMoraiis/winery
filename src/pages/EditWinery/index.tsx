@@ -18,7 +18,7 @@ const WineryEditForm = () => {
     viewpoint: false,
     cafeteria: false,
     playground: false,
-    accessibility: false,
+    acessibility: false,
     pool: false,
     cable_car: false,
     kayak: false,
@@ -225,11 +225,11 @@ const WineryEditForm = () => {
           <label className="flex items-center">
             <input
               type="checkbox"
-              name="accessibility"
-              value="accessibility"
-              checked={winery.accessibility}
+              name="acessibility"
+              value="acessibility"
+              checked={winery.acessibility}
               onChange={(e) =>
-                setWinery({ ...winery, accessibility: e.target.checked })
+                setWinery({ ...winery, acessibility: e.target.checked })
               }
               className="rounded-md text-[#fc9f32] focus:ring-[#ae1b1e]"
             />

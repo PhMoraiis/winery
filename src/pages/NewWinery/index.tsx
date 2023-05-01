@@ -18,7 +18,7 @@ const WineryCreateForm = () => {
     viewpoint: false,
     cafeteria: false,
     playground: false,
-    accessibility: false,
+    acessibility: false,
     pool: false,
     cable_car: false,
     kayak: false,
@@ -212,11 +212,11 @@ const WineryCreateForm = () => {
           <label className="flex items-center">
             <input
               type="checkbox"
-              name="accessibility"
-              value="accessibility"
-              checked={vinicola.accessibility}
+              name="acessibility"
+              value="acessibility"
+              checked={vinicola.acessibility}
               onChange={(e) =>
-                setVinicola({ ...vinicola, accessibility: e.target.checked })
+                setVinicola({ ...vinicola, acessibility: e.target.checked })
               }
               className="rounded-md text-[#fc9f32] focus:ring-[#ae1b1e]"
             />

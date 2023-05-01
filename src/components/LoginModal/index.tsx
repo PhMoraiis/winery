@@ -9,7 +9,6 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { IFormData } from "./types";
 import { useState } from "react";
-import { API } from "../../api";
 
 const schema = yup
   .object({
@@ -24,9 +23,17 @@ const schema = yup
 const LoginModal = () => {
   const [showModal, setShowModal] = useState(false);
 
+  const validUsers = [
+    { email: "rodrigo.rng@gmail.com", password: "winery7675" },
+  ];
+  const isValidUser = (email: string, password: string) => {
+    return validUsers.some(
+      (user) => user.email === email && user.password === password
+    );
+  };
+
   const navigate = useNavigate();
 
-  
   const {
     control,
     handleSubmit,
@@ -36,22 +43,15 @@ const LoginModal = () => {
     mode: "onChange",
   });
 
-
-  const onSubmit = async (formData: IFormData) => {
-    try {
-      const { data } = await API.get(
-        `/users?email=${formData.email}&password=${formData.password}`
-      );
-      if (data.length > 0) {
-        navigate("/winerymng");
-        setShowModal(false);
-      } else {
-        alert("Email ou senha incorretos");
-      }
-    } catch {
-      alert("Erro ao fazer login");
+  const onSubmit = (data: IFormData) => {
+    if (isValidUser(data.email, data.password)) {
+      navigate("/winerymng");
+      setShowModal(false);
+    } else {
+      alert("Email ou senha incorretos");
     }
   };
+
 
   return (
     <>

@@ -12,7 +12,7 @@ export interface Vinicola {
     viewpoint: boolean;
     cafeteria: boolean;
     playground: boolean;
-    accessibility: boolean;
+    acessibility: boolean;
     pool: boolean;
     cable_car: boolean;
     kayak: boolean;
