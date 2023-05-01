@@ -1,8 +1,8 @@
 FROM node:18-alpine
 
-RUN npm install -g npm@9.5.0 postgresql-client
+RUN npm install -g npm@9.5.0
 
-WORKDIR /home/node/src
+WORKDIR /src
 
 COPY package.json ./
 
@@ -10,6 +10,6 @@ RUN npm install --legacy-peer-deps
 
 COPY --chown=node:node . .
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["npm", "run", "dev"]

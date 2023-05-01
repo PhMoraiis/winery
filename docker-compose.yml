@@ -4,8 +4,8 @@ services:
   front-app:
     build: .
     container_name: vineyard_front
-    working_dir: /home/node/src
+    working_dir: /src
     expose:
-      - "80"
+      - "8080"
     ports:
-      - "80:80"
+      - "8080:3000"
