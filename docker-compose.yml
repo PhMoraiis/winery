@@ -19,7 +19,7 @@ services:
     container_name: database_vineyard_api
     restart: always
     ports:
-      - 5432:5432
+      - 5432:5435
     environment:
       - POSTGRES_HOST=database
       - POSTGRES_USER=adminvineyard
