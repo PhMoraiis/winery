@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid";
 export class Vinicola {
   @PrimaryColumn()
   id: string;
-
+dadass
   @Column()
   name: string;
 
