@@ -6,8 +6,8 @@ import { DeleteVinicolaController } from './controllers/Vinicola/DeleteVinicolaC
 import { UpdateVinicolaController } from './controllers/Vinicola/UpdateVinicolaController';
 import { GetVinicolaByIdController } from './controllers/Vinicola/GetVinicolaByIdController';
 
-import { GetAllUserController } from './controllers/User/GetAllUserController';
-import { CreateUserController } from './controllers/User/CreateUserController';
+import { UserController } from './controllers/User/UserController';
+import { authMiddleware } from './middlewares/authMiddleware';
 
 const routes = Router();
 
@@ -21,7 +21,12 @@ routes.delete("/vinicolas/:id", new DeleteVinicolaController().handle)
 routes.put("/vinicolas/:id", new UpdateVinicolaController().handle)
 routes.get("/vinicolas/:id", new GetVinicolaByIdController().handle)
 
-routes.get("/users", new GetAllUserController().handle)
-routes.post("/users", new CreateUserController().handle)
+routes.post("/user", new UserController().create)
+routes.post("/login", new UserController().login)
+
+
+routes.use(authMiddleware)
+routes.get('/profile', new UserController().getProfile)
+
 
 export { routes }

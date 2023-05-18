@@ -1,12 +1,11 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
+import { Entity, Column, CreateDateColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("vinicolas")
 export class Vinicola {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: string;
-dadass
-  @Column()
+
+  @Column({type: 'text', unique: true})
   name: string;
 
   @Column()
@@ -56,10 +55,4 @@ dadass
 
   @CreateDateColumn()
   created_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }
