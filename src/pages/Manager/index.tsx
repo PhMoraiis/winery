@@ -11,6 +11,7 @@ const Manager = (): JSX.Element => {
   const [deleted, setDeleted] = useState<Winery | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [vinicolaToDelete, setVinicolaToDelete] = useState<Winery | null>(null);
+  const [editingWinery, setEditingWinery] = useState<Winery | null>(null);
 
   useEffect(() => {
     async function fetchVinicolas() {
@@ -37,7 +38,6 @@ const Manager = (): JSX.Element => {
         setVinicolas((prevVinicolas) =>
           prevVinicolas.filter((v) => v.id !== vinicola.id)
         );
-        navigate(`/editwinery/${vinicola.id}`); // Redirect to EditWinery with the id of the deleted winery
       })
       .catch((error: AxiosError) => {
         console.error(error);
@@ -49,36 +49,107 @@ const Manager = (): JSX.Element => {
       });
   };
 
+  const handleEditWinery = (e: React.FormEvent, vinicola: Winery): void => {
+    e.preventDefault();
+    API.put(`/vinicolas/${vinicola.id}`, vinicola, {
+      responseType: "json",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response: AxiosResponse) => {
+        console.log("Winery updated:", response.data);
+        setEditingWinery(null);
+      })
+      .catch((error: AxiosError) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="max-w-full max-h-screen overflow-x-auto mt-12 px-8">
       <table className="table table-auto w-full min-w-max border border-collapse shadow-xl">
         <thead>
-          <tr className="text-left gradient text-gray-700 font-gilroyLt">
-            <th className="py-2 px-4 text-white">Nome</th>
+          <tr className="text-center gradient text-gray-700 font-gilroyLt">
+            <th className="py-4 px-4 text-white">Nome</th>
             <th className="py-2 px-4 text-white">Descrição</th>
-            <th className="py-2 px-2 text-white">Excluir</th>
             <th className="py-2 px-4 text-white">Editar</th>
+            <th className="py-2 px-2 text-white">Excluir</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-[#fc9f32]">
           {vinicolas.map((winery: Winery) => (
-            <tr
-              key={winery.id}
-              className="hover:bg-gray-200 font-gilroyLt"
-              onClick={() => navigate(`/editwinery/${winery.id}`)}
-            >
+            <tr key={winery.id} className="hover:bg-gray-200 font-gilroyLt">
               <td className="py-4 px-6">{winery.name}</td>
               <td className="py-4 px-6">{winery.description}</td>
               <td className="py-4 px-2 text-center">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate(`/editwinery/${winery.id}`); // Redirect to EditWinery with the id of the winery to be edited
-                  }}
-                >
-                  <BiTrash className="text-3xl text-[#ae1b1e]" />
-                </button>
+                {editingWinery?.id === winery.id ? (
+                  <form
+                    onSubmit={(e) => handleEditWinery(e, editingWinery)}
+                    className="flex flex-col gap-2"
+                  >
+                    <label htmlFor="name">Nome</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editingWinery.name}
+                      onChange={(e) =>
+                        setEditingWinery({
+                          ...editingWinery,
+                          name: e.target.value,
+                        })
+                      }
+                      className="border border-gray-300 rounded-md px-2 py-1 focus:ring focus:ring-[#fc9f32] focus:outline-none"
+                    />
+                    <label htmlFor="description">Descrição</label>
+                    <textarea
+                      name="description"
+                      value={editingWinery.description}
+                      onChange={(e) =>
+                        setEditingWinery({
+                          ...editingWinery,
+                          description: e.target.value,
+                        })
+                      }
+                      className="border border-gray-300 rounded-md px-2 py-1 focus:ring focus:ring-[#fc9f32] focus:outline-none"
+                    ></textarea>
+                    <label htmlFor="image">Imagem</label>
+                    <input
+                      type="text"
+                      name="image"
+                      value={editingWinery.image}
+                      onChange={(e) =>
+                        setEditingWinery({
+                          ...editingWinery,
+                          image: e.target.value,
+                        })
+                      }
+                      className="border border-gray-300 rounded-md px-2 py-1 focus:ring focus:ring-[#fc9f32] focus:outline-none"
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        type="submit"
+                        className="gradient text-white font-gilroyLt py-2 px-4 rounded-lg"
+                      >
+                        Save
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setEditingWinery(null)}
+                        className="bg-gray-400 hover:bg-gray-500 text-white font-gilroyLt py-2 px-4 rounded-lg"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <button
+                    onClick={() => setEditingWinery({ ...winery })}
+                    className="text-3xl text-gray-500"
+                  >
+                    <BiEdit />
+                  </button>
+                )}
               </td>
+
               <td className="py-4 px-2 text-center">
                 <button
                   onClick={(e) => {
@@ -87,14 +158,13 @@ const Manager = (): JSX.Element => {
                     setShowModal(true);
                   }}
                 >
-                  <BiEdit className="text-3xl text-gray-500" />
+                  <BiTrash className="text-3xl text-[#ae1b1e]" />
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
       {deleting && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center">
           <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-400"></div>

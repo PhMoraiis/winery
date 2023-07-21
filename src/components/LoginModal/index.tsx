@@ -9,7 +9,6 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { IFormData } from "./types";
 import { useState } from "react";
-import { API } from "../../api";
 
 const schema = yup
   .object({
@@ -35,24 +34,34 @@ const LoginModal = () => {
     mode: "onChange",
   });
 
-  const onSubmit = async (data: { email: string, password: string }) => {
-    try {
-      const response = await API.post('/user', {
-        email: data.email,
-        password: data.password,
-      });
-  
-      if (response.status === 200) {
-        navigate("/winerymng");
-        setShowModal(false);
-      } else {
-        alert("Email or password incorrect");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("An error occurred during login");
+  // Assuming you have a user database or API endpoint with user information
+const users = [
+  { email: "philipe@gmail.com", password: "ph7675" },
+];
+
+// ...
+
+const onSubmit = async (data: IFormData) => {
+  try {
+    const matchedUser = users.find(
+      (user) => user.email === data.email && user.password === data.password
+    );
+
+    if (matchedUser) {
+      // Simulate successful login with a brief delay for demonstration purposes
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      navigate("/winerymng");
+      setShowModal(false);
+    } else {
+      alert("Email or password incorrect");
     }
-  };
+  } catch (error) {
+    console.error(error);
+    alert("An error occurred during login");
+  }
+};
+
 
   return (
     <>

@@ -3,86 +3,45 @@
     {
       "id": 1,
       "name": "Casa Silva",
-      "description": "San Fernando, Región del Libertador General Bernardo O’Higgins. Colchagua, Chile",
-      "image": "https://cdn.shopify.com/s/files/1/0640/9784/5461/products/casaSilva1.png?v=1652823694",
-      "wine_tasting": true,
-      "tour": true,
-      "restaurant": true,
-      "hotel": true,
-      "bikes": true,
-      "trakking": false,
-      "viewpoint": false,
-      "cafeteria": false,
-      "playground": false,
-      "accessibility": false,
-      "pool": false,
-      "cable_car": false,
-      "kayak": false
+      "description": "San Fernando, Región del Libertador General Bernardo O’Higgins. Colchagua, Chile pinto",
+      "image": "https://cdn.shopify.com/s/files/1/0640/9784/5461/products/casaSilva1.png?v=1652823694"
     },
     {
       "id": 2,
       "name": "Caminomar",
       "description": "Peralillo, O'Higgins. Colchagua, Chile",
-      "image": "https://www.vintrail.com/uploads/club_owner_image/image_683370175.jpg",
-      "wine_tasting": false,
-      "tour": true,
-      "restaurant": false,
-      "hotel": true,
-      "bikes": false,
-      "trakking": false,
-      "viewpoint": false,
-      "cafeteria": false,
-      "playground": false,
-      "accessibility": false,
-      "pool": false,
-      "cable_car": false,
-      "kayak": false
+      "image": "https://www.vintrail.com/uploads/club_owner_image/image_683370175.jpg"
     },
     {
       "id": 3,
       "name": "Flaherty Wines",
       "description": "1037 E-713, Santa Maria, Valparaíso. Aconcagua, Chile",
-      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/9a/ce/bc/the-winery-is-located.jpg?w=1200&h=-1&s=1",
-      "wine_tasting": true,
-      "tour": true,
-      "restaurant": false,
-      "hotel": false,
-      "bikes": false,
-      "trakking": false,
-      "viewpoint": false,
-      "cafeteria": false,
-      "playground": false,
-      "accessibility": false,
-      "pool": false,
-      "cable_car": false,
-      "kayak": false
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/9a/ce/bc/the-winery-is-located.jpg?w=1200&h=-1&s=1"
     },
     {
       "id": 4,
       "name": "Narbona Wines",
       "description": "155 Balmaceda, Quillota, Valparaíso. Aconcagua, Chile",
-      "image": "http://www.narbona.com.uy/wp-content/uploads/2016/07/bodega.jpg",
-      "wine_tasting": true,
-      "tour": false,
-      "restaurant": false,
-      "hotel": false,
-      "bikes": false,
-      "trakking": false,
-      "viewpoint": false,
-      "cafeteria": false,
-      "playground": false,
-      "accessibility": false,
-      "pool": false,
-      "cable_car": false,
-      "kayak": false
+      "image": "http://www.narbona.com.uy/wp-content/uploads/2016/07/bodega.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Teste",
+      "description": "Testando a descrição",
+      "image": "TEstando a imagem"
     }
   ],
   "users": [
     {
       "id": 1,
-      "name": "First Usuario",
-      "email": "test@gmail.com",
-      "password": "test"
+      "name": "Philipe Morais",
+      "email": "philipe@gmail.com",
+      "password": "ph7675"
+    },
+    {
+      "email": "philipe@gmail.com",
+      "password": "ph7675",
+      "id": 2
     }
   ]
 }

@@ -1,21 +1,7 @@
-import { MdOutlineHotel, MdOutlinePedalBike } from "react-icons/md";
-import { BiAccessibility, BiCableCar } from "react-icons/bi";
-import { GiWineGlass } from "react-icons/gi";
-import { HiOutlineUserGroup } from "react-icons/hi";
-import { IoRestaurantOutline } from "react-icons/io5";
-import { RiLandscapeLine } from "react-icons/ri";
-import {
-  TbTrekking,
-  TbCoffee,
-  TbMoodKid,
-  TbPool,
-  TbKayak,
-} from "react-icons/tb";
-import React from "react";
 
 const MiniCard = ({ vinicolas }: any) => {
   return (
-    <div className="lg:w-1.5/3 sm:w-2/4 max-xl:w-screen p-4 bg-[#f6f6f6]">
+    <div className="lg:w-1/2 lg:mx-auto /4 sm:w-2/4 p-4 bg-[#f6f6f6]">
       <div className="flex relative shadow-lg shadow-gray-300 h-full">
         <img
           alt="gallery"
