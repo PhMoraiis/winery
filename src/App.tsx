@@ -16,7 +16,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/winerymng" element={<Logon />} />
-          <Route path="/winery/:id" element={<EditWinery />} />
+          <Route path="/editwinery/:id" element={<EditWinery winery={{
+            id: "",
+            name: "",
+            description: "",
+            image: ""
+          }} />} />
           <Route path="/winerynew" element={<NewWinery />} />
         </Routes>
         <Footer />

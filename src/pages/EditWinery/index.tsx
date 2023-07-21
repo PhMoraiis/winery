@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { API } from "../../api";
+import { AxiosResponse, AxiosError } from "axios";
 
 export type Winery = {
   id: string;
@@ -8,8 +9,8 @@ export type Winery = {
   image: string;
 };
 
-const WineryEditForm: React.FC = () => {
-  const [winery, setWinery] = useState<Winery>({
+const WineryEditForm: React.FC<{ winery: Winery }> = ({ winery }) => {
+  const [editWinery, setEditWinery] = useState<Winery>({
     id: "",
     name: "",
     description: "",
@@ -20,10 +21,10 @@ const WineryEditForm: React.FC = () => {
     if (winery.id) {
       // buscar dados da vinícola no backend e atualizar o estado
       API.get<Winery>(`/vinicolas/${winery.id}`, { responseType: "json" })
-        .then((response) => {
-          setWinery(response.data);
+        .then((response: AxiosResponse<Winery>) => {
+          setEditWinery(response.data);
         })
-        .catch((error) => {
+        .catch((error: AxiosError) => {
           console.error(error);
         });
     }
@@ -31,13 +32,11 @@ const WineryEditForm: React.FC = () => {
 
   const handleEditVinicola = () => {
     // enviar dados atualizados da vinícola para o backend
-    const updatedWinery = { ...winery };
-    delete updatedWinery.id;
-    API.put<Winery>(`/vinicolas/${winery.id}`, updatedWinery, { responseType: "json" })
-      .then((response) => {
+    API.put<Winery>(`/vinicolas/${winery.id}`, editWinery, { responseType: "json" })
+      .then((response: AxiosResponse<Winery>) => {
         console.log("Winery updated:", response.data);
       })
-      .catch((error) => {
+      .catch((error: AxiosError) => {
         console.error(error);
       });
   };
@@ -59,8 +58,8 @@ const WineryEditForm: React.FC = () => {
             type="text"
             name="name"
             className="block w-full rounded-md shadow-lg mb-4 border-[#fc9f32] focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] md:w-4/4"
-            value={winery.name}
-            onChange={(e) => setWinery({ ...winery, name: e.target.value })}
+            value={editWinery.name}
+            onChange={(e) => setEditWinery({ ...editWinery, name: e.target.value })}
           />
 
           <label className="block mb-4 ml-10 mt-2 text-gray-700 md:w-2/4 font-naveidRg items-center">
@@ -70,8 +69,8 @@ const WineryEditForm: React.FC = () => {
             type="text"
             name="image"
             className="block w-full border-[#fc9f32] rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] md:w-4/4"
-            value={winery.image}
-            onChange={(e) => setWinery({ ...winery, image: e.target.value })}
+            value={editWinery.image}
+            onChange={(e) => setEditWinery({ ...editWinery, image: e.target.value })}
           />
         </div>
         <label className="block mb-2 text-gray-700 font-naveidRg">
@@ -80,10 +79,10 @@ const WineryEditForm: React.FC = () => {
         <textarea
           className="block w-full border-[#fc9f32] rounded-md shadow-lg mb-4 focus:border-[#ae1b1e] focus:ring focus:ring-[#fc9f32] resize-none"
           rows={4}
-          value={winery.description}
+          value={editWinery.description}
           name="description"
           onChange={(e) =>
-            setWinery({ ...winery, description: e.target.value })
+            setEditWinery({ ...editWinery, description: e.target.value })
           }
         ></textarea>
       </form>

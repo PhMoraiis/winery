@@ -9,6 +9,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { IFormData } from "./types";
 import { useState } from "react";
+import { API } from "../../api";
 
 const schema = yup
   .object({
@@ -23,16 +24,6 @@ const schema = yup
 const LoginModal = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const validUsers = [
-    { email: "rodrigo.rng@gmail.com", password: "winery7675" },
-  ];
-
-  const isValidUser = (email: string, password: string) => {
-    return validUsers.some(
-      (user) => user.email === email && user.password === password
-    );
-  };
-
   const navigate = useNavigate();
 
   const {
@@ -44,15 +35,24 @@ const LoginModal = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: { email: string, password: string }): void => {
-    if (isValidUser(data.email, data.password)) {
-      navigate("/winerymng");
-      setShowModal(false);
-    } else {
-      alert("Email or password incorrect");
+  const onSubmit = async (data: { email: string, password: string }) => {
+    try {
+      const response = await API.post('/user', {
+        email: data.email,
+        password: data.password,
+      });
+  
+      if (response.status === 200) {
+        navigate("/winerymng");
+        setShowModal(false);
+      } else {
+        alert("Email or password incorrect");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred during login");
     }
   };
-
 
   return (
     <>

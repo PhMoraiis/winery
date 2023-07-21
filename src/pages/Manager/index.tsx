@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { API } from "../../api";
-import { AxiosError, AxiosResponse } from "axios";
 import { Winery } from "./../EditWinery/index";
+import { AxiosResponse, AxiosError } from "axios";
 
 const Manager = (): JSX.Element => {
   const [vinicolas, setVinicolas] = useState<Winery[]>([]);
   const [deleting, setDeleting] = useState<boolean>(false);
   const [deleted, setDeleted] = useState<Winery | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [vinicolaToDelete, setVinicolaToDelete] = useState<Winery | null>(
-    null
-  );
+  const [vinicolaToDelete, setVinicolaToDelete] = useState<Winery | null>(null);
 
   useEffect(() => {
     async function fetchVinicolas() {
@@ -26,20 +24,22 @@ const Manager = (): JSX.Element => {
     fetchVinicolas();
   }, []);
 
+  const navigate = useNavigate();
+
   const handleDelete = (vinicola: Winery): void => {
-    setDeleting(true);
     API.delete(`/vinicolas/${vinicola.id}`, {
       responseType: "json",
       headers: { "Content-Type": "application/json" },
     })
-      .then((response) => {
+      .then((response: AxiosResponse) => {
         console.log("Winery deleted:", response.data);
         setDeleted(vinicola);
         setVinicolas((prevVinicolas) =>
           prevVinicolas.filter((v) => v.id !== vinicola.id)
         );
+        navigate(`/editwinery/${vinicola.id}`); // Redirect to EditWinery with the id of the deleted winery
       })
-      .catch((error) => {
+      .catch((error: AxiosError) => {
         console.error(error);
       })
       .finally(() => {
@@ -57,13 +57,28 @@ const Manager = (): JSX.Element => {
             <th className="py-2 px-4 text-white">Nome</th>
             <th className="py-2 px-4 text-white">Descrição</th>
             <th className="py-2 px-2 text-white">Excluir</th>
+            <th className="py-2 px-4 text-white">Editar</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-[#fc9f32]">
           {vinicolas.map((winery: Winery) => (
-            <tr key={winery.id} className="hover:bg-gray-200 font-gilroyLt">
+            <tr
+              key={winery.id}
+              className="hover:bg-gray-200 font-gilroyLt"
+              onClick={() => navigate(`/editwinery/${winery.id}`)}
+            >
               <td className="py-4 px-6">{winery.name}</td>
               <td className="py-4 px-6">{winery.description}</td>
+              <td className="py-4 px-2 text-center">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/editwinery/${winery.id}`); // Redirect to EditWinery with the id of the winery to be edited
+                  }}
+                >
+                  <BiTrash className="text-3xl text-[#ae1b1e]" />
+                </button>
+              </td>
               <td className="py-4 px-2 text-center">
                 <button
                   onClick={(e) => {
@@ -72,7 +87,7 @@ const Manager = (): JSX.Element => {
                     setShowModal(true);
                   }}
                 >
-                  <BiTrash className="text-3xl text-[#ae1b1e]" />
+                  <BiEdit className="text-3xl text-gray-500" />
                 </button>
               </td>
             </tr>
