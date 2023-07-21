@@ -11,7 +11,7 @@
    "scripts": {
       "dev": "nodemon --exec tsnd --respawn --transpile-only --exit-child --ignore-watch node_modules app/index.ts",
       "build": "tsc",
-      "start": "ts-node dist/app/index.ts",
+      "start": "ts-node dist/app/index.js",
       "typeorm": "typeorm-ts-node-commonjs",
       "migration:run": "typeorm-ts-node-commonjs -d ./app/data-source.ts migration:run",
       "migration:generate": "typeorm-ts-node-commonjs -d ./app/data-source.ts migration:generate ./app/migrations/default",
