@@ -7,7 +7,6 @@ import { UpdateVinicolaController } from './controllers/Vinicola/UpdateVinicolaC
 import { GetVinicolaByIdController } from './controllers/Vinicola/GetVinicolaByIdController';
 
 import { UserController } from './controllers/User/UserController';
-import { authMiddleware } from './middlewares/authMiddleware';
 
 const routes = Router();
 
@@ -25,7 +24,6 @@ routes.get("/vinicolas/:id", new GetVinicolaByIdController().handle)
 routes.post("/user", new UserController().create)
 routes.post("/login", new UserController().login)
 
-routes.use(authMiddleware)
 routes.get('/profile', new UserController().getProfile)
 
 
