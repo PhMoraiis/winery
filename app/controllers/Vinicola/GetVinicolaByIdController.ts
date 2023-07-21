@@ -1,21 +1,22 @@
-import { Request, Response } from "express";
-import { GetVinicolaByIdService } from "../../services/Vinicola/GetVinicolaByIdService";
-import { AppDataSource } from "../../data-source";
+import { Request, Response } from 'express';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export class GetVinicolaByIdController {
-    async handle(request: Request, response: Response) {
-        const { id } = request.params;
+  async handle(request: Request, response: Response) {
+    const { id } = request.params;
 
-        const service = new GetVinicolaByIdService();
+    const numericId = parseInt(id, 10); // Convert the id to a number if it is a string
 
-        const dataSource = AppDataSource;
+    const vinicola = await prisma.vinicola.findUnique({
+      where: { id: numericId },
+    });
 
-        const result = await service.execute(dataSource, id);
-
-        if(result instanceof Error) {
-            return response.status(400).json(result.message);
-        }
-
-        return response.json(result);
+    if (!vinicola) {
+      return response.status(404).json({ error: 'Vinicola not found' });
     }
+
+    return response.json(vinicola);
+  }
 }

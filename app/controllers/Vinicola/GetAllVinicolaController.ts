@@ -1,15 +1,12 @@
-import { Request, Response } from "express";
-import { AppDataSource } from "../../data-source";
-import { GetAllVinicolaService } from "../../services/Vinicola/GetAllVinicolaService";
+import { Request, Response } from 'express';
+import { PrismaClient, Vinicola } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export class GetAllVinicolaController {
-    async handle(request: Request, response: Response) {
-        const service = new GetAllVinicolaService();
+  async handle(request: Request, response: Response) {
+    const vinicola = await prisma.vinicola.findMany();
 
-        const dataSource = AppDataSource;
-
-        const vinicola = await service.execute(dataSource);
-
-        return response.json(vinicola);
-    }
+    return response.json(vinicola);
+  }
 }

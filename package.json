@@ -9,23 +9,20 @@
       "node": "18"
    },
    "scripts": {
-      "dev": "nodemon --exec tsnd --respawn --transpile-only --exit-child --ignore-watch node_modules app/index.ts",
-      "build": "tsc",
-      "start": "ts-node dist/app/index.js",
-      "typeorm": "typeorm-ts-node-commonjs",
-      "migration:run": "typeorm-ts-node-commonjs -d ./app/data-source.ts migration:run",
-      "migration:generate": "typeorm-ts-node-commonjs -d ./app/data-source.ts migration:generate ./app/migrations/default",
-      "typeorm:create": "npm run typeorm migration:create app/migrations/default",
-      "typeorm:revert": "npm run typeorm migration:revert -d app/data-source.ts"
+      "dev": "tsx app/index.ts",
+      "build": "tsup app",
+      "start": "node dist/app/index.js"
    },
    "dependencies": {
+      "@prisma/client": "^5.0.0",
       "bcrypt": "^5.1.0",
       "dotenv": "^16.0.3",
       "express": "^4.18.2",
+      "fastify": "^4.20.0",
       "jsonwebtoken": "^9.0.0",
       "pg": "^8.4.0",
-      "reflect-metadata": "^0.1.13",
-      "typeorm": "0.3.15"
+      "tsup": "^7.1.0",
+      "tsx": "^3.12.7"
    },
    "devDependencies": {
       "@types/bcrypt": "^5.0.0",
@@ -33,6 +30,7 @@
       "@types/jsonwebtoken": "^9.0.2",
       "@types/node": "^16.18.38",
       "nodemon": "^3.0.1",
+      "prisma": "^5.0.0",
       "ts-node": "10.7.0",
       "ts-node-dev": "^2.0.0",
       "typescript": "4.5.2"

@@ -24,7 +24,7 @@ services:
       - POSTGRES_HOST=localhost
       - POSTGRES_USER=phmorais
       - POSTGRES_PASSWORD=winerydatapass
-      - POSTGRES_DB=winery_database
+      - POSTGRES_DB=database_winery
     volumes:
       - pgdata:/data/postgres
 

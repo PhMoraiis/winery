@@ -1,18 +1,23 @@
-import express from 'express';
-import { AppDataSource } from "./data-source";
+import express, { Request, Response, NextFunction } from 'express';
+import { PrismaClient } from '@prisma/client';
 import { routes } from './routes';
 
-AppDataSource.initialize().then(() => {
+const prisma = new PrismaClient();
+
+const startServer = async () => {
   const app = express();
 
   app.use(express.json());
 
   app.use(routes);
 
-  const PORT = 3001;
-
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${process.env.PORT || PORT}`);
+  app.listen(process.env.PORT ? Number(process.env.PORT) : 3000, () => {
+    console.log('HTTP Server running');
   });
-  
-}).catch(error => console.log(error))
+};
+
+startServer()
+  .catch((error) => console.log(error))
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

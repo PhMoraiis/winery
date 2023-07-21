@@ -1,21 +1,24 @@
-import { Request, Response } from "express";
-import { CreateVinicolaService } from "../../services/Vinicola/CreateVinicolaService";
-import { AppDataSource } from "../../data-source";
+import { Request, Response } from 'express';
+import { PrismaClient, Vinicola } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export class CreateVinicolaController {
-    async handle(request: Request, response: Response) {
-        const { name, description, image } = request.body;
+  async handle(request: Request, response: Response) {
+    const { name, description, image } = request.body;
 
-        const service = new CreateVinicolaService();
+    const existingVinicola = await prisma.vinicola.findUnique({
+      where: { name },
+    });
 
-        const dataSource = AppDataSource;
-
-        const result = await service.execute({ name, description, image }, dataSource);
-
-        if (result instanceof Error) {
-            return response.status(400).json({ error: result.message });
-        }
-
-        return response.json(result);
+    if (existingVinicola) {
+      return response.status(400).json({ error: 'Vinicola already exists' });
     }
+
+    const vinicola = await prisma.vinicola.create({
+      data: { name, description, image },
+    });
+
+    return response.json(vinicola);
+  }
 }

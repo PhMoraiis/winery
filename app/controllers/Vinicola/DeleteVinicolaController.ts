@@ -1,21 +1,22 @@
 import { Request, Response } from 'express';
-import { DeleteVinicolaService } from '../../services/Vinicola/DeleteVinicolaService';
-import { AppDataSource } from '../../data-source';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export class DeleteVinicolaController {
-    async handle(request: Request, response: Response) {
-        const { id } = request.params;
+  async handle(request: Request, response: Response) {
+    const { id } = request.params;
 
-        const service = new DeleteVinicolaService();
+    const numericId = parseInt(id, 10); // Convert the id to a number if it is a string
 
-        const dataSource = AppDataSource;
+    const vinicola = await prisma.vinicola.findUnique({ where: { id: numericId } });
 
-        const result = await service.execute(dataSource, id);
-
-        if (result instanceof Error) {
-            return response.status(400).json({ error: result.message });
-        }
-
-        return response.json(result);
+    if (!vinicola) {
+      return response.status(404).json({ error: 'Vinicola not found' });
     }
+
+    const deletedVinicola = await prisma.vinicola.delete({ where: { id: numericId } });
+
+    return response.json(deletedVinicola);
+  }
 }
