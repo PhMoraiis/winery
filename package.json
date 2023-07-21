@@ -5,10 +5,13 @@
    "repository": "https://github.com/PhMoraiis/Winery.git",
    "author": "Philipe Barbosa de Morais <liperapltda@gmail.com>",
    "license": "MIT",
+   "engines": {
+      "node": "18"
+   },
    "scripts": {
-      "dev": "tsnd --respawn --transpile-only --exit-child --ignore-watch node_modules app/index.ts",
+      "dev": "nodemon --exec tsnd --respawn --transpile-only --exit-child --ignore-watch node_modules app/index.ts",
       "build": "tsc",
-      "start": "ts-node app/index.ts",
+      "start": "ts-node dist/app/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
       "migration:run": "typeorm-ts-node-commonjs -d ./app/data-source.ts migration:run",
       "migration:generate": "typeorm-ts-node-commonjs -d ./app/data-source.ts migration:generate ./app/migrations/default",

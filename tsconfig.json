@@ -5,6 +5,11 @@
          "es6",
          "ES2018"
       ],
+      "noImplicitAny": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "allowJs": true,
+      "resolveJsonModule": true,
       "esModuleInterop": true,
       "target": "es2018",
       "module": "commonjs",
@@ -16,5 +21,10 @@
       "sourceMap": true,
       "strictPropertyInitialization": false,
       "typeRoots": ["./app/@types", "./node_modules/@types"]
+   },
+   "include": ["./app/**/*"],
+   "exclude": ["node_modules", "dist"],
+   "ts-node": {
+      "files": true
    }
 }
