@@ -9,8 +9,10 @@ AppDataSource.initialize().then(() => {
 
   app.use(routes);
 
-  app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}`);
+  const PORT = 3001;
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${process.env.PORT || PORT}`);
   });
   
 }).catch(error => console.log(error))

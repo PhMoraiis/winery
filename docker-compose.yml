@@ -21,7 +21,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_HOST=database
+      - POSTGRES_HOST=localhost
       - POSTGRES_USER=phmorais
       - POSTGRES_PASSWORD=winerydatapass
       - POSTGRES_DB=winery_database

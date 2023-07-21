@@ -3,10 +3,6 @@ import { userRepository } from "../../repositories/userRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-type JwtPayload = {
-    id: number;
-}
-
 export class UserController {
     async create( req: Request, res: Response) {
         const { name, email, password } = req.body;
