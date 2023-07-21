@@ -20,7 +20,6 @@ const CardGrid = (): JSX.Element => {
         setError(null);
       } catch (error) {
         setLoading(false);
-        setError("Error fetching data. Please try again later.");
       }
     };
     getVinicolas();
@@ -60,7 +59,7 @@ const CardGrid = (): JSX.Element => {
                   Nenhuma vinícola foi encontrada.
                 </h3>
                 <p className="text-black text-lg font-gilroyLt">
-                  Desculpe, por favor tente novamente com outro filtro.
+                  Desculpe, por favor tente novamente.
                 </p>
               </div>
             ) : (
