@@ -1,6 +1,6 @@
-FROM node:18-alpine
+FROM node:latest
 
-RUN npm install -g npm@9.5.0 postgresql-client
+RUN npm install -g npm@latest postgresql-client
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
@@ -8,7 +8,7 @@ WORKDIR /home/node/app
 
 COPY package.json ./
 
-RUN npm install --legacy-peer-deps
+RUN npm install
 
 COPY --chown=node:node . .
 

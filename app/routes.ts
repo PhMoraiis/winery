@@ -21,9 +21,9 @@ routes.delete("/vinicolas/:id", new DeleteVinicolaController().handle)
 routes.put("/vinicolas/:id", new UpdateVinicolaController().handle)
 routes.get("/vinicolas/:id", new GetVinicolaByIdController().handle)
 
+
 routes.post("/user", new UserController().create)
 routes.post("/login", new UserController().login)
-
 
 routes.use(authMiddleware)
 routes.get('/profile', new UserController().getProfile)

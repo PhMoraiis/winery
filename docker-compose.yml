@@ -1,9 +1,9 @@
-version: '3.9'
+version: '3'
 
 services:
   app:
     build: .
-    container_name: vineyard_api
+    container_name: winery_api
     working_dir: /home/node/app
     expose:
       - "3000"
@@ -16,15 +16,15 @@ services:
 
   database:
     image: postgres
-    container_name: database_vineyard_api
+    container_name: database_winery_api
     restart: always
     ports:
       - 5432:5432
     environment:
       - POSTGRES_HOST=database
-      - POSTGRES_USER=adminvineyard
-      - POSTGRES_PASSWORD=vineyardpass
-      - POSTGRES_DB=winery_crud
+      - POSTGRES_USER=phmorais
+      - POSTGRES_PASSWORD=winerydatapass
+      - POSTGRES_DB=winery_database
     volumes:
       - pgdata:/data/postgres
 
