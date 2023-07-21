@@ -1,6 +1,6 @@
-FROM node:18-alpine
+FROM node:latest
 
-RUN npm install -g npm@9.5.0
+RUN npm install -g npm@9.6.4
 
 WORKDIR /src
 

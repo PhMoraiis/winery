@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Vinicola } from "../../types";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { API } from "../../api";
 import { AxiosError, AxiosResponse } from "axios";
+import { Winery } from "./../EditWinery/index";
 
-const Manager = () => {
-  const [vinicolas, setVinicolas] = useState<Vinicola[]>([]);
-  const [deleting, setDeleting] = useState(false);
-  const [deleted, setDeleted] = useState<Vinicola | null>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [vinicolaToDelete, setVinicolaToDelete] = useState<Vinicola | null>(
+const Manager = (): JSX.Element => {
+  const [vinicolas, setVinicolas] = useState<Winery[]>([]);
+  const [deleting, setDeleting] = useState<boolean>(false);
+  const [deleted, setDeleted] = useState<Winery | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [vinicolaToDelete, setVinicolaToDelete] = useState<Winery | null>(
     null
   );
 
   useEffect(() => {
     async function fetchVinicolas() {
       try {
-        const response = await API.get("");
+        const response = await API.get<Winery[]>("/vinicolas");
         setVinicolas(response.data);
       } catch (error) {
         console.log(error);
@@ -26,18 +26,20 @@ const Manager = () => {
     fetchVinicolas();
   }, []);
 
-  const handleDelete = (vinicola: Vinicola) => {
-    // excluir vinícola do backend
+  const handleDelete = (vinicola: Winery): void => {
     setDeleting(true);
-    API.delete(`/${vinicola.id}`, { responseType: "json" })
-      .then((response: AxiosResponse) => {
+    API.delete(`/vinicolas/${vinicola.id}`, {
+      responseType: "json",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
         console.log("Winery deleted:", response.data);
         setDeleted(vinicola);
         setVinicolas((prevVinicolas) =>
           prevVinicolas.filter((v) => v.id !== vinicola.id)
         );
       })
-      .catch((error: AxiosError) => {
+      .catch((error) => {
         console.error(error);
       })
       .finally(() => {
@@ -58,7 +60,7 @@ const Manager = () => {
           </tr>
         </thead>
         <tbody className="divide-y divide-[#fc9f32]">
-          {vinicolas.map((winery: Vinicola) => (
+          {vinicolas.map((winery: Winery) => (
             <tr key={winery.id} className="hover:bg-gray-200 font-gilroyLt">
               <td className="py-4 px-6">{winery.name}</td>
               <td className="py-4 px-6">{winery.description}</td>
@@ -98,7 +100,7 @@ const Manager = () => {
             <div className="flex justify-around font-gilroyLt">
               <button
                 className="gradient text-white px-4 py-2 rounded mr-4"
-                onClick={() => handleDelete(vinicolaToDelete as Vinicola)}
+                onClick={() => handleDelete(vinicolaToDelete as Winery)}
               >
                 Excluir
               </button>

@@ -1,35 +1,28 @@
-import { MiniCard } from "../MiniCard";
-import { Filter } from "../../Filters";
+import MiniCard from "../MiniCard";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { API } from "../../../api";
 
-const CardGrid = () => {
-  const [vinicolas, setVinicolas] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(1);
-  const [noResults, setNoResults] = useState(false);
+type Vinicola = {
+  id: string;
+};
 
-  const getVinicolas = async () => {
+const CardGrid = (): JSX.Element => {
+  const [vinicolas, setVinicolas] = useState<Vinicola[]>([]);
+  const [noResults, setNoResults] = useState<boolean>(false);
+
+  const getVinicolas = useCallback(async (): Promise<void> => {
     try {
-      const response = await API.get("");
-      const sortedVinicolas = response.data.sort((a: any, b: any) =>
-        a.price > b.price ? 1 : -1
-      );
-      setVinicolas(sortedVinicolas);
-      setFiltered(sortedVinicolas);
+      const response = await API.get("/vinicolas");
+      setVinicolas(vinicolas);
     } catch (error) {
       console.error(error);
     }
-  };
-
-  useEffect(() => {
-    getVinicolas();
   }, []);
 
   useEffect(() => {
-    setNoResults(filtered.length === 0);
-  }, [filtered]);
+    getVinicolas();
+  }, [getVinicolas]);
 
   return (
     <section id="vinicolas" className="text-gray-600 bg-[#F6f6f6] mt-16">
@@ -46,14 +39,6 @@ const CardGrid = () => {
         </div>
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap -m-4">
-            <Filter
-              vinicolas={vinicolas}
-              setFiltered={setFiltered}
-              activeCategory={activeCategory}
-              setActiveCategory={setActiveCategory}
-            />
-          </div>
-          <div className="flex flex-wrap -m-4">
             {noResults ? (
               <div className=" mx-auto space-y-3 text-center py-16">
                 <h3 className="paragraph text-4xl font-naveidBd sm:text-5xl">
@@ -64,7 +49,7 @@ const CardGrid = () => {
                 </p>
               </div>
             ) : (
-              filtered.map((item: any) => (
+              vinicolas.map((item: Vinicola) => (
                 <MiniCard vinicolas={item} key={item.id} />
               ))
             )}

@@ -27,7 +27,6 @@ const LoginModal = () => {
     { email: "rodrigo.rng@gmail.com", password: "winery7675" },
   ];
 
-  // ACONSELHO COLOCAR ESSE LOGIN EM UM ARQUIVO ENV
   const isValidUser = (email: string, password: string) => {
     return validUsers.some(
       (user) => user.email === email && user.password === password
@@ -45,12 +44,12 @@ const LoginModal = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: IFormData) => {
+  const onSubmit = (data: { email: string, password: string }): void => {
     if (isValidUser(data.email, data.password)) {
       navigate("/winerymng");
       setShowModal(false);
     } else {
-      alert("Email ou senha incorretos");
+      alert("Email or password incorrect");
     }
   };
 

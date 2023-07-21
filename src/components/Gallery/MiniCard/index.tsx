@@ -11,6 +11,7 @@ import {
   TbPool,
   TbKayak,
 } from "react-icons/tb";
+import React from "react";
 
 const MiniCard = ({ vinicolas }: any) => {
   return (
@@ -26,53 +27,10 @@ const MiniCard = ({ vinicolas }: any) => {
             {vinicolas.name}
           </h2>
           <p className="leading-relaxed font-gilroyLt">{vinicolas.description}</p>
-          <ul className="my-4 flex flex-wrap justify-center mx-auto">
-          <div className="flex">
-            {vinicolas.wine_tasting ? (
-              <GiWineGlass size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.tour ? (
-              <HiOutlineUserGroup size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.restaurant ? (
-              <IoRestaurantOutline size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.hotel ? (
-              <MdOutlineHotel size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.bikes ? (
-              <MdOutlinePedalBike size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.trakking ? (
-              <TbTrekking size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.viewpoint ? (
-              <RiLandscapeLine size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.cafeteria ? (
-              <TbCoffee size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.playground ? (
-              <TbMoodKid size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.acessibility ? (
-              <BiAccessibility size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.pool ? (
-              <TbPool size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.cable_car ? (
-              <BiCableCar size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-            {vinicolas.kayak ? (
-              <TbKayak size={26} className="text-[#0B141A] mr-2" />
-            ) : null}
-          </div>
-        </ul>
         </div>
       </div>
     </div>
   );
 };
 
-export { MiniCard };
+export default MiniCard;

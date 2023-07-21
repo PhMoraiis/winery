@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Logon from "./pages/Manager";
 
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import EditWinery from "./pages/EditWinery";
 import NewWinery from "./pages/NewWinery";
 

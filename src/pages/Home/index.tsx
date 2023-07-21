@@ -1,5 +1,5 @@
 import { CardGrid } from "../../components/Gallery/CardGrid"
-import { Main } from "../../components/Main"
+import Main from "../../components/Main"
 
 const Home = () => {
     return(
