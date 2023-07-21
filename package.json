@@ -11,7 +11,7 @@
    "scripts": {
       "dev": "tsx app/index.ts",
       "build": "tsup app",
-      "start": "node dist/app/index.js"
+      "start": "node dist/index.js"
    },
    "dependencies": {
       "@prisma/client": "^5.0.0",
